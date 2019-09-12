@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11 -g
 
 CXX_DEFINES = -DGLEW_STATIC
 
-CXX_INCLUDES = -I"/home/ludfra-7/git/gitlab/Path tracer/exts/imgui" -I"/home/ludfra-7/git/gitlab/Path tracer/exts/imgui/examples/opengl3_example" -I"/home/ludfra-7/git/gitlab/Path tracer/exts/glew/include" -I"/home/ludfra-7/git/gitlab/Path tracer/exts/glfw/include" -I"/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src" 
+CXX_INCLUDES = -I"/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/imgui" -I"/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/imgui/examples/opengl3_example" -I"/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/glew/include" -I"/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/glfw/include" -I"/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src" 
 

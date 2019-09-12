@@ -8,11 +8,10 @@ class textureResource
 {
 public:
 	textureResource();
+	textureResource(unsigned char * img, int width, int height);
 	~textureResource();
 	void loadTexture(char* path);
 	void use(GLuint & program);
-
-private:
 	int width, height;
 	GLuint tex;
 	unsigned char* img;

@@ -1,4 +1,4 @@
-# Install script for directory: /home/ludfra-7/git/gitlab/Path tracer/exts
+# Install script for directory: /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ludfra-7/git/gitlab/Path tracer/build/exts/glew/cmake_install.cmake")
-  include("/home/ludfra-7/git/gitlab/Path tracer/build/exts/glfw/cmake_install.cmake")
+  include("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/glew/cmake_install.cmake")
+  include("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/glfw/cmake_install.cmake")
 
 endif()
 

@@ -6,7 +6,7 @@ graphicsNode::graphicsNode() {
 graphicsNode::~graphicsNode(){
 }
 
-void graphicsNode::draw(camera & c, light** lights, unsigned int size) {
+void graphicsNode::draw(camera & c, light* lights, unsigned int size) {
 	shader->use();
 	texture->use(shader->program);
 
@@ -18,9 +18,9 @@ void graphicsNode::draw(camera & c, light** lights, unsigned int size) {
 	glUniform1ui(glGetUniformLocation(shader->program, "lightArraySize"), size);
 	for (int i = 0; i < size; i++) {
 		string name = "lightArray[" + std::to_string(i) + "]";
-		glUniform1fv(glGetUniformLocation(shader->program, (name + ".pos").c_str()), 4, lights[i]->pos);
-		glUniform1uiv(glGetUniformLocation(shader->program, (name + ".col").c_str()), 3, lights[i]->color);
-		glUniform1f(glGetUniformLocation(shader->program, (name + ".intensity").c_str()), lights[i]->intensity);
+		glUniform1fv(glGetUniformLocation(shader->program, (name + ".pos").c_str()), 4, lights[i].pos);
+		glUniform1uiv(glGetUniformLocation(shader->program, (name + ".col").c_str()), 3, lights[i].color);
+		glUniform1f(glGetUniformLocation(shader->program, (name + ".intensity").c_str()), lights[i].intensity);
 	}
 
 	//Camera
@@ -64,17 +64,17 @@ void graphicsNode::setTexture(textureResource & texture) {
 
 //TRANSFORM
 void graphicsNode::transform(float x, float y, float z) {
-	trans = matrix4D::transform(x, y, z);
+	trans = mat4::transform(x, y, z);
 	refreshModel();
 }
 
 void graphicsNode::rotation(float x, float y, float z) {
-	rot = matrix4D::rotd3(x, y, z);
+	rot = mat4::rotd3(x, y, z);
 	refreshModel();
 }
 
 void graphicsNode::scale(float x, float y, float z) {
-	size = matrix4D::scale(x, y, z);
+	size = mat4::scale(x, y, z);
 	refreshModel();
 }
 

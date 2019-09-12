@@ -20,14 +20,14 @@ public:
 
 	void specColor(float r, float g, float b, float C, float K);
 
-	matrix4D model;
+	mat4 model;
 
 	std::shared_ptr<meshResource> getMesh();
 	std::shared_ptr<textureResource> getTexture();
 	std::shared_ptr<shaderResource> getShader();
 
 
-	void draw(camera & c, light** lights, unsigned int size);
+	void draw(camera & c, light* lights, unsigned int size);
 private:
 	std::shared_ptr<meshResource> mesh;
 	std::shared_ptr<textureResource> texture;
@@ -35,6 +35,6 @@ private:
 	
 	float specData[5];
 
-	matrix4D trans, rot, size;
+	mat4 trans, rot, size;
 
 };

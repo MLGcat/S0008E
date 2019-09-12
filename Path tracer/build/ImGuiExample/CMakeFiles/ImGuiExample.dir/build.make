@@ -43,10 +43,10 @@ RM = /var/lib/snapd/snap/cmake/89/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ludfra-7/git/gitlab/Path tracer"
+CMAKE_SOURCE_DIR = "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ludfra-7/git/gitlab/Path tracer/build"
+CMAKE_BINARY_DIR = "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build"
 
 # Include any dependencies generated for this target.
 include ImGuiExample/CMakeFiles/ImGuiExample.dir/depend.make
@@ -59,29 +59,29 @@ include ImGuiExample/CMakeFiles/ImGuiExample.dir/flags.make
 
 ImGuiExample/CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.o: ImGuiExample/CMakeFiles/ImGuiExample.dir/flags.make
 ImGuiExample/CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.o: ../ImGuiExample/code/exampleapp.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ludfra-7/git/gitlab/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object ImGuiExample/CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.o"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample" && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.o -c "/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/exampleapp.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object ImGuiExample/CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.o"
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample" && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.o -c "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/exampleapp.cc"
 
 ImGuiExample/CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.i"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/exampleapp.cc" > CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/exampleapp.cc" > CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.i
 
 ImGuiExample/CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.s"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/exampleapp.cc" -o CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/exampleapp.cc" -o CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.s
 
 ImGuiExample/CMakeFiles/ImGuiExample.dir/code/main.cc.o: ImGuiExample/CMakeFiles/ImGuiExample.dir/flags.make
 ImGuiExample/CMakeFiles/ImGuiExample.dir/code/main.cc.o: ../ImGuiExample/code/main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ludfra-7/git/gitlab/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object ImGuiExample/CMakeFiles/ImGuiExample.dir/code/main.cc.o"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample" && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImGuiExample.dir/code/main.cc.o -c "/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/main.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object ImGuiExample/CMakeFiles/ImGuiExample.dir/code/main.cc.o"
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample" && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ImGuiExample.dir/code/main.cc.o -c "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/main.cc"
 
 ImGuiExample/CMakeFiles/ImGuiExample.dir/code/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ImGuiExample.dir/code/main.cc.i"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/main.cc" > CMakeFiles/ImGuiExample.dir/code/main.cc.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/main.cc" > CMakeFiles/ImGuiExample.dir/code/main.cc.i
 
 ImGuiExample/CMakeFiles/ImGuiExample.dir/code/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ImGuiExample.dir/code/main.cc.s"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/main.cc" -o CMakeFiles/ImGuiExample.dir/code/main.cc.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/main.cc" -o CMakeFiles/ImGuiExample.dir/code/main.cc.s
 
 # Object files for target ImGuiExample
 ImGuiExample_OBJECTS = \
@@ -112,8 +112,8 @@ ImGuiExample_EXTERNAL_OBJECTS =
 ../bin/ImGuiExample: exts/libimgui.a
 ../bin/ImGuiExample: exts/libnanovg.a
 ../bin/ImGuiExample: ImGuiExample/CMakeFiles/ImGuiExample.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ludfra-7/git/gitlab/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../../bin/ImGuiExample"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ImGuiExample.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../../bin/ImGuiExample"
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ImGuiExample.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 ImGuiExample/CMakeFiles/ImGuiExample.dir/build: ../bin/ImGuiExample
@@ -121,10 +121,10 @@ ImGuiExample/CMakeFiles/ImGuiExample.dir/build: ../bin/ImGuiExample
 .PHONY : ImGuiExample/CMakeFiles/ImGuiExample.dir/build
 
 ImGuiExample/CMakeFiles/ImGuiExample.dir/clean:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample" && $(CMAKE_COMMAND) -P CMakeFiles/ImGuiExample.dir/cmake_clean.cmake
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample" && $(CMAKE_COMMAND) -P CMakeFiles/ImGuiExample.dir/cmake_clean.cmake
 .PHONY : ImGuiExample/CMakeFiles/ImGuiExample.dir/clean
 
 ImGuiExample/CMakeFiles/ImGuiExample.dir/depend:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ludfra-7/git/gitlab/Path tracer" "/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample" "/home/ludfra-7/git/gitlab/Path tracer/build" "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample" "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample/CMakeFiles/ImGuiExample.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample/CMakeFiles/ImGuiExample.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : ImGuiExample/CMakeFiles/ImGuiExample.dir/depend
 

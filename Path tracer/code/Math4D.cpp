@@ -2,34 +2,34 @@
 
 #include"Math4D.h"
 
-vector4D::vector4D() {
+vec4::vec4() {
 	vec[0] = 0;
 	vec[1] = 0;
 	vec[2] = 0;
 	vec[3] = 1;
 }
-vector4D::vector4D(float a, float b, float c, float d) {
+vec4::vec4(float a, float b, float c, float d) {
 	vec[0] = a;
 	vec[1] = b;
 	vec[2] = c;
 	vec[3] = d;
 };
-vector4D::vector4D(float a, float b, float c) {
+vec4::vec4(float a, float b, float c) {
 	vec[0] = a;
 	vec[1] = b;
 	vec[2] = c;
 	vec[3] = 1;
 };
-vector4D::vector4D(const vector4D& src) {
+vec4::vec4(const vec4& src) {
 	vec[0] = src.vec[0];
 	vec[1] = src.vec[1];
 	vec[2] = src.vec[2];
 	vec[3] = src.vec[3];
 };
-vector4D::~vector4D() {};
+vec4::~vec4() {};
 
-///Returnerar true om vektorerna har identiska värden
-bool vector4D::operator==(const vector4D& rhs) {
+///Returnerar true om vektorerna har identiska vï¿½rden
+bool vec4::operator==(const vec4& rhs) {
 	return (
 		vec[0] == rhs.vec[0] &&
 		vec[1] == rhs.vec[1] &&
@@ -37,8 +37,8 @@ bool vector4D::operator==(const vector4D& rhs) {
 		vec[3] == rhs.vec[3]);
 };
 
-///Returnerar true om vektorerna har olika värden
-bool vector4D::operator!=(const vector4D& rhs) {
+///Returnerar true om vektorerna har olika vï¿½rden
+bool vec4::operator!=(const vec4& rhs) {
 	return !(
 		vec[0] == rhs.vec[0] &&
 		vec[1] == rhs.vec[1] &&
@@ -47,7 +47,7 @@ bool vector4D::operator!=(const vector4D& rhs) {
 };
 
 ///Addition med vektor
-void vector4D::operator+=(const vector4D& rhs) {
+void vec4::operator+=(const vec4& rhs) {
 	vec[0] += rhs.vec[0];
 	vec[1] += rhs.vec[1];
 	vec[2] += rhs.vec[2];
@@ -55,7 +55,7 @@ void vector4D::operator+=(const vector4D& rhs) {
 };
 
 ///Subtraktion med vektor
-void vector4D::operator-=(const vector4D& rhs) {
+void vec4::operator-=(const vec4& rhs) {
 	vec[0] -= rhs.vec[0];
 	vec[1] -= rhs.vec[1];
 	vec[2] -= rhs.vec[2];
@@ -63,8 +63,8 @@ void vector4D::operator-=(const vector4D& rhs) {
 };
 
 ///Addition med vektor
-vector4D vector4D::operator+(const vector4D& rhs) {
-	return vector4D(
+vec4 vec4::operator+(const vec4& rhs) const {
+	return vec4(
 		vec[0] + rhs.vec[0],
 		vec[1] + rhs.vec[1],
 		vec[2] + rhs.vec[2],
@@ -72,15 +72,15 @@ vector4D vector4D::operator+(const vector4D& rhs) {
 };
 
 ///Subtraktion med vektor
-vector4D vector4D::operator-(const vector4D& rhs) {
-	return vector4D(vec[0] - rhs.vec[0],
+vec4 vec4::operator-(const vec4& rhs) const {
+	return vec4(vec[0] - rhs.vec[0],
 		vec[1] - rhs.vec[1],
 		vec[2] - rhs.vec[2],
 		vec[3] - rhs.vec[3]);
 };
 
 ///Multiplikation med vektor
-float vector4D::operator*(const vector4D& rhs) {
+float vec4::operator*(const vec4& rhs) const{
 	return(vec[0] * rhs.vec[0] +
 		vec[1] * rhs.vec[1] +
 		vec[2] * rhs.vec[2] +
@@ -88,8 +88,8 @@ float vector4D::operator*(const vector4D& rhs) {
 };
 
 ///Kryssprodukt
-vector4D vector4D::operator%(const vector4D& rhs) {
-	vector4D ret(
+vec4 vec4::operator%(const vec4& rhs) {
+	vec4 ret(
 		vec[1] * rhs.vec[2] - vec[2] * rhs.vec[1],
 		vec[2] * rhs.vec[0] - vec[0] * rhs.vec[2],
 		vec[0] * rhs.vec[1] - vec[1] * rhs.vec[0],
@@ -98,25 +98,42 @@ vector4D vector4D::operator%(const vector4D& rhs) {
 	return ret;
 };
 
-///Multiplikation med skalär
-vector4D vector4D::operator*(float s) {
-	return(vector4D(
+///Multiplikation med skalï¿½r
+vec4 vec4::operator*(float s) const{
+	return(vec4(
 		vec[0] * s,
 		vec[1] * s,
 		vec[2] * s,
 		vec[3] * s));
 };
 
-///Multiplikation med skalär
-void vector4D::operator*=(float s) {
+///Multiplikation med skalï¿½r
+void vec4::operator*=(float s) {
 	vec[0] *= s;
 	vec[1] *= s;
 	vec[2] *= s;
 	vec[3] *= s;
 };
 
-///Kopierar värden från vektor
-void vector4D::operator=(const vector4D& rhs) {
+///Division med skalï¿½r
+vec4 vec4::operator/(float s) {
+	return(vec4(
+		vec[0] / s,
+		vec[1] / s,
+		vec[2] / s,
+		vec[3] / s));
+};
+
+///Division med skalï¿½r
+void vec4::operator/=(float s) {
+	vec[0] /= s;
+	vec[1] /= s;
+	vec[2] /= s;
+	vec[3] /= s;
+};
+
+///Kopierar vï¿½rden frï¿½n vektor
+void vec4::operator=(const vec4& rhs) {
 	vec[0] = rhs.vec[0];
 	vec[1] = rhs.vec[1];
 	vec[2] = rhs.vec[2];
@@ -124,34 +141,34 @@ void vector4D::operator=(const vector4D& rhs) {
 };
 
 ///Returnerar vektorns absolutbelopp
-float vector4D::abs() {
+float vec4::abs() {
 	return(sqrt(
 		pow(vec[0], 2) +
 		pow(vec[1], 2) +
 		pow(vec[2], 2)));
 };
 
-float& vector4D::operator[](const int i) {
+float& vec4::operator[](const int i) {
 	return vec[i];
 };
 
-float vector4D::operator[](const int i) const {
+float vec4::operator[](const int i) const {
 	return vec[i];
 };
 
 ///Returnerar vektorn som ett float array
-float & vector4D::get() {
+float & vec4::get() {
 	return vec[0];
 }
-float & vector4D::get3() {
+float & vec4::get3() {
 	return vec[0];
 }
-void vector4D::set(float x, float y, float z) {
+void vec4::set(float x, float y, float z) {
 	vec[0] = x;
 	vec[1] = y;
 	vec[2] = z;
 }
-void vector4D::set(float x, float y, float z, float a) {
+void vec4::set(float x, float y, float z, float a) {
 	vec[0] = x;
 	vec[1] = y;
 	vec[2] = z;
@@ -159,12 +176,12 @@ void vector4D::set(float x, float y, float z, float a) {
 }
 
 ///Returnerar vektorn i normalform
-vector4D vector4D::norm() {
+vec4 vec4::norm() {
 	float a = 1 / this->abs();
-	return vector4D(vec[0] * a, vec[1] * a, vec[2] * a);
+	return vec4(vec[0] * a, vec[1] * a, vec[2] * a);
 };
 
-void vector4D::print() {
+void vec4::print() {
 	cout << "|";
 	for (int i = 0; i < 4; i++) {
 		cout << vec[i] << "|";
@@ -173,7 +190,7 @@ void vector4D::print() {
 }
 
 //Creates identity matrix by default
-matrix4D::matrix4D() {
+mat4::mat4() {
 	mat[0][0] = 1;
 	mat[0][1] = 0;
 	mat[0][2] = 0;
@@ -192,7 +209,7 @@ matrix4D::matrix4D() {
 	mat[3][3] = 1;
 };
 
-matrix4D::matrix4D(float a, float b, float c, float d, float e, float f, float g, float h, float i, float j, float k, float l, float m, float n, float o, float p) {
+mat4::mat4(float a, float b, float c, float d, float e, float f, float g, float h, float i, float j, float k, float l, float m, float n, float o, float p) {
 	mat[0][0] = a;
 	mat[0][1] = b;
 	mat[0][2] = c;
@@ -211,102 +228,102 @@ matrix4D::matrix4D(float a, float b, float c, float d, float e, float f, float g
 	mat[3][3] = p;
 };
 
-matrix4D::~matrix4D() {};
+mat4::~mat4() {};
 
-float* matrix4D::operator[](int i) {
+float* mat4::operator[](int i) {
 	return &mat[i][0];
 };
 
 
-matrix4D matrix4D::rotX(float v) {
+mat4 mat4::rotX(float v) {
 	float c = cos(v);
 	float s = sin(v);
-	return matrix4D(
+	return mat4(
 		1, 0, 0, 0,
 		0, c, s, 0,
 		0,-s, c, 0,
 		0, 0, 0, 1);
 };
 
-matrix4D matrix4D::rotY(float v) {
+mat4 mat4::rotY(float v) {
 	float c = cos(v);
 	float s = sin(v);
-	return matrix4D(
+	return mat4(
 		c, 0,-s, 0,
 		0, 1, 0, 0,
 		s, 0, c, 0,
 		0, 0, 0, 1);
 };
 
-matrix4D matrix4D::rotZ(float v) {
+mat4 mat4::rotZ(float v) {
 	float c = cos(v);
 	float s = sin(v);
-	return matrix4D(
+	return mat4(
 		c, s, 0, 0,
 	   -s, c, 0, 0,
 		0, 0, 1, 0,
 		0, 0, 0, 1);
 };
 
-matrix4D matrix4D::transform(float x, float y, float z) {
-	return matrix4D(
+mat4 mat4::transform(float x, float y, float z) {
+	return mat4(
 		1,0,0,x,
 		0,1,0,y,
 		0,0,1,z,
 		0,0,0,1);
 };
-matrix4D matrix4D::transform(vector4D pos) {
-	return matrix4D(
+mat4 mat4::transform(vec4 pos) {
+	return mat4(
 		1, 0, 0, pos[0], 
 		0, 1, 0, pos[1], 
 		0, 0, 1, pos[2], 
 		0, 0, 0, 1);
 };
-matrix4D matrix4D::rot(float v, vector4D axis) {
+mat4 mat4::rot(float v, vec4 axis) {
 	float c = cos(v);
 	float s = sin(v);
 	float x = axis[0];
 	float y = axis[1];
 	float z = axis[2];
-	return matrix4D(
+	return mat4(
 		c+x*x*(1-c), x*y*(1-c)-z*s, x*z*(1-c)+y*s, 0,
 		y*x*(1-c)+z*s, c+y*y*(1-c), y*z*(1-c)-x*s, 0,
 		z*x*(1-c)-y*s, z*y*(1-c)+x*s, c+z*z*(1-c), 0,
 		0, 0, 0, 1);
 };
-matrix4D matrix4D::rot3(float x, float y, float z) {
+mat4 mat4::rot3(float x, float y, float z) {
 	return rotX(x)*rotY(y)*rotZ(z);
 }
 
-matrix4D matrix4D::rotdX(float v) {
+mat4 mat4::rotdX(float v) {
 	return rotX(v*DEG);
 }
-matrix4D matrix4D::rotdY(float v) {
+mat4 mat4::rotdY(float v) {
 	return rotY(v*DEG);
 }
-matrix4D matrix4D::rotdZ(float v) {
+mat4 mat4::rotdZ(float v) {
 	return rotZ(v*DEG);
 }
-matrix4D matrix4D::rotd(float v, vector4D axis) {
+mat4 mat4::rotd(float v, vec4 axis) {
 	return rot(v*DEG, axis);
 }
-matrix4D matrix4D::rotd3(float x, float y, float z) {
+mat4 mat4::rotd3(float x, float y, float z) {
 	return rotX(x*DEG)*rotY(y*DEG)*rotZ(z*DEG);
 }
-matrix4D matrix4D::rotd3(vector4D rot) {
+mat4 mat4::rotd3(vec4 rot) {
 	return rotX(rot[0]*DEG)*rotY(rot[1] *DEG)*rotZ(rot[2] *DEG);
 }
 
 
-matrix4D matrix4D::scale(float x, float y, float z) {
-	return matrix4D(
+mat4 mat4::scale(float x, float y, float z) {
+	return mat4(
 		x, 0, 0, 0,
 		0, y, 0, 0,
 		0, 0, z, 0,
 		0, 0, 0, 1);
 }
 
-void matrix4D::operator=(const matrix4D& rhs) {
+void mat4::operator=(const mat4& rhs) {
 	mat[0][0] = rhs.mat[0][0];
 	mat[0][1] = rhs.mat[0][1];
 	mat[0][2] = rhs.mat[0][2];
@@ -325,8 +342,8 @@ void matrix4D::operator=(const matrix4D& rhs) {
 	mat[3][3] = rhs.mat[3][3];
 };
 
-matrix4D matrix4D::operator*(const matrix4D& b) {
-	matrix4D ret;
+mat4 mat4::operator*(const mat4& b) {
+	mat4 ret;
 	ret.mat[0][0] = mat[0][0] * b.mat[0][0] + mat[0][1] * b.mat[1][0] + mat[0][2] * b.mat[2][0] + mat[0][3] * b.mat[3][0];
 	ret.mat[0][1] = mat[0][0] * b.mat[0][1] + mat[0][1] * b.mat[1][1] + mat[0][2] * b.mat[2][1] + mat[0][3] * b.mat[3][1];
 	ret.mat[0][2] = mat[0][0] * b.mat[0][2] + mat[0][1] * b.mat[1][2] + mat[0][2] * b.mat[2][2] + mat[0][3] * b.mat[3][2];
@@ -346,16 +363,16 @@ matrix4D matrix4D::operator*(const matrix4D& b) {
 	return ret;
 };
 
-vector4D matrix4D::operator*(const vector4D &rhs) {
-	return vector4D(
+vec4 mat4::operator*(const vec4 &rhs) {
+	return vec4(
 		mat[0][0] * rhs[0] + mat[0][1] * rhs[1] + mat[0][2] * rhs[2] + mat[0][3] * rhs[3],
 		mat[1][0] * rhs[0] + mat[1][1] * rhs[1] + mat[1][2] * rhs[2] + mat[1][3] * rhs[3],
 		mat[2][0] * rhs[0] + mat[2][1] * rhs[1] + mat[2][2] * rhs[2] + mat[2][3] * rhs[3],
 		mat[3][0] * rhs[0] + mat[3][1] * rhs[1] + mat[3][2] * rhs[2] + mat[3][3] * rhs[3]
 	);
 };
-matrix4D matrix4D::operator*(float s) {
-	matrix4D ret(
+mat4 mat4::operator*(float s) {
+	mat4 ret(
 		mat[0][0] * s,
 		mat[0][1] * s,
 		mat[0][2] * s,
@@ -375,8 +392,8 @@ matrix4D matrix4D::operator*(float s) {
 	return ret;
 };
 
-matrix4D matrix4D::transpose() {
-	matrix4D ret(
+mat4 mat4::transpose() {
+	mat4 ret(
 		mat[0][0],
 		mat[1][0], 
 		mat[2][0], 
@@ -396,9 +413,9 @@ matrix4D matrix4D::transpose() {
 	return ret;
 };
 
-matrix4D matrix4D::inv() {
+mat4 mat4::inv() {
 
-	matrix4D ret(
+	mat4 ret(
 		mat[1][1] * mat[2][2] * mat[3][3] - //0
 		mat[1][1] * mat[2][3] * mat[3][2] -
 		mat[2][1] * mat[1][2] * mat[3][3] +
@@ -516,18 +533,18 @@ matrix4D matrix4D::inv() {
 
 	//If no inverse exists, returns identity matrix
 	if (det == 0) {
-		matrix4D a;
+		mat4 a;
 		return a;
 	}
 	det = 1/det;
 	return (ret*det);
 }
 
-float* matrix4D::get() {
+float* mat4::get() {
 	return &mat[0][0];
 }
 
-void matrix4D::print() {
+void mat4::print() {
 	for (int i = 0; i < 4; i++) {
 		cout << "|";
 		for (int j = 0; j < 4; j++) {

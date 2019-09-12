@@ -3,16 +3,16 @@
 class light {
 public:
 	light();
-	light(vector4D pos, vector4D color, float intensity);
+	light(vec4 pos, vec4 color, float intensity);
 	light(float x, float y, float z, unsigned int r, unsigned int g, unsigned int b, float intensity);
 	~light();
 
 
 	void setPos(float x, float y, float z);
-	void setPos(vector4D pos);
+	void setPos(vec4 pos);
 
 	void setColor(unsigned int r, unsigned int g, unsigned int b);
-	void setColor(vector4D col);
+	void setColor(vec4 col);
 
 	void setIntensity(float intensity);
 

@@ -420,7 +420,7 @@ extern PFNGLUNIFORM3DVPROC gl3wUniform3dv;
 extern PFNGLUNIFORM4DVPROC gl3wUniform4dv;
 extern PFNGLUNIFORMMATRIX2DVPROC gl3wUniformMatrix2dv;
 extern PFNGLUNIFORMMATRIX3DVPROC gl3wUniformMatrix3dv;
-extern PFNGLUNIFORMMATRIX4DVPROC gl3wUniformMatrix4dv;
+extern PFNGLUNIFORMmat4VPROC gl3wUniformmat4v;
 extern PFNGLUNIFORMMATRIX2X3DVPROC gl3wUniformMatrix2x3dv;
 extern PFNGLUNIFORMMATRIX2X4DVPROC gl3wUniformMatrix2x4dv;
 extern PFNGLUNIFORMMATRIX3X2DVPROC gl3wUniformMatrix3x2dv;
@@ -502,7 +502,7 @@ extern PFNGLPROGRAMUNIFORMMATRIX3FVPROC gl3wProgramUniformMatrix3fv;
 extern PFNGLPROGRAMUNIFORMMATRIX4FVPROC gl3wProgramUniformMatrix4fv;
 extern PFNGLPROGRAMUNIFORMMATRIX2DVPROC gl3wProgramUniformMatrix2dv;
 extern PFNGLPROGRAMUNIFORMMATRIX3DVPROC gl3wProgramUniformMatrix3dv;
-extern PFNGLPROGRAMUNIFORMMATRIX4DVPROC gl3wProgramUniformMatrix4dv;
+extern PFNGLPROGRAMUNIFORMmat4VPROC gl3wProgramUniformmat4v;
 extern PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC gl3wProgramUniformMatrix2x3fv;
 extern PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC gl3wProgramUniformMatrix3x2fv;
 extern PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC gl3wProgramUniformMatrix2x4fv;
@@ -1025,7 +1025,7 @@ extern PFNGLTEXTURESTORAGE3DMULTISAMPLEEXTPROC gl3wTextureStorage3DMultisampleEX
 #define glUniform4dv		gl3wUniform4dv
 #define glUniformMatrix2dv		gl3wUniformMatrix2dv
 #define glUniformMatrix3dv		gl3wUniformMatrix3dv
-#define glUniformMatrix4dv		gl3wUniformMatrix4dv
+#define glUniformmat4v		gl3wUniformmat4v
 #define glUniformMatrix2x3dv		gl3wUniformMatrix2x3dv
 #define glUniformMatrix2x4dv		gl3wUniformMatrix2x4dv
 #define glUniformMatrix3x2dv		gl3wUniformMatrix3x2dv
@@ -1107,7 +1107,7 @@ extern PFNGLTEXTURESTORAGE3DMULTISAMPLEEXTPROC gl3wTextureStorage3DMultisampleEX
 #define glProgramUniformMatrix4fv		gl3wProgramUniformMatrix4fv
 #define glProgramUniformMatrix2dv		gl3wProgramUniformMatrix2dv
 #define glProgramUniformMatrix3dv		gl3wProgramUniformMatrix3dv
-#define glProgramUniformMatrix4dv		gl3wProgramUniformMatrix4dv
+#define glProgramUniformmat4v		gl3wProgramUniformmat4v
 #define glProgramUniformMatrix2x3fv		gl3wProgramUniformMatrix2x3fv
 #define glProgramUniformMatrix3x2fv		gl3wProgramUniformMatrix3x2fv
 #define glProgramUniformMatrix2x4fv		gl3wProgramUniformMatrix2x4fv

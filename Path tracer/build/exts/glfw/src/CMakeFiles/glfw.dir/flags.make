@@ -6,5 +6,5 @@ C_FLAGS = -g -fPIC   -Wall
 
 C_DEFINES = -DGLEW_STATIC -D_GLFW_USE_CONFIG_H
 
-C_INCLUDES = -I"/home/ludfra-7/git/gitlab/Path tracer/exts/glfw/include" -I"/home/ludfra-7/git/gitlab/Path tracer/exts/glfw/src" -I"/home/ludfra-7/git/gitlab/Path tracer/build/exts/glfw/src" 
+C_INCLUDES = -I"/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/glfw/include" -I"/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/glfw/src" -I"/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/glfw/src" 
 

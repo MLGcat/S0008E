@@ -48,10 +48,10 @@ RM = /var/lib/snapd/snap/cmake/89/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ludfra-7/git/gitlab/Path tracer"
+CMAKE_SOURCE_DIR = "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ludfra-7/git/gitlab/Path tracer/build"
+CMAKE_BINARY_DIR = "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/home/ludfra-7/git/gitlab/Path tracer/build/CMakeFiles" "/home/ludfra-7/git/gitlab/Path tracer/build/exts/glfw/CMakeFiles/progress.marks"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 exts/glfw/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ludfra-7/git/gitlab/Path tracer/build/CMakeFiles" 0
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/CMakeFiles" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/glfw/CMakeFiles/progress.marks"
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 exts/glfw/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 exts/glfw/clean
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 exts/glfw/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,17 +97,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 exts/glfw/preinstall
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 exts/glfw/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 exts/glfw/preinstall
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 exts/glfw/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -129,6 +129,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

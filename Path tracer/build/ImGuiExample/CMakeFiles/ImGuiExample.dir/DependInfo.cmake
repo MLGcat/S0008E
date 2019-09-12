@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/exampleapp.cc" "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample/CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.o"
-  "/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/main.cc" "/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample/CMakeFiles/ImGuiExample.dir/code/main.cc.o"
+  "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/exampleapp.cc" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample/CMakeFiles/ImGuiExample.dir/code/exampleapp.cc.o"
+  "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/main.cc" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample/CMakeFiles/ImGuiExample.dir/code/main.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -26,12 +26,12 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/ludfra-7/git/gitlab/Path tracer/build/engine/core/CMakeFiles/core.dir/DependInfo.cmake"
-  "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render/CMakeFiles/render.dir/DependInfo.cmake"
-  "/home/ludfra-7/git/gitlab/Path tracer/build/exts/glew/CMakeFiles/glew.dir/DependInfo.cmake"
-  "/home/ludfra-7/git/gitlab/Path tracer/build/exts/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
-  "/home/ludfra-7/git/gitlab/Path tracer/build/exts/CMakeFiles/imgui.dir/DependInfo.cmake"
-  "/home/ludfra-7/git/gitlab/Path tracer/build/exts/CMakeFiles/nanovg.dir/DependInfo.cmake"
+  "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/core/CMakeFiles/core.dir/DependInfo.cmake"
+  "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render/CMakeFiles/render.dir/DependInfo.cmake"
+  "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/glew/CMakeFiles/glew.dir/DependInfo.cmake"
+  "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
+  "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/CMakeFiles/imgui.dir/DependInfo.cmake"
+  "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/CMakeFiles/nanovg.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

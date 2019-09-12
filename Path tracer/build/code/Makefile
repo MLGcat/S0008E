@@ -48,10 +48,10 @@ RM = /var/lib/snapd/snap/cmake/89/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ludfra-7/git/gitlab/Path tracer"
+CMAKE_SOURCE_DIR = "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ludfra-7/git/gitlab/Path tracer/build"
+CMAKE_BINARY_DIR = "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/home/ludfra-7/git/gitlab/Path tracer/build/CMakeFiles" "/home/ludfra-7/git/gitlab/Path tracer/build/code/CMakeFiles/progress.marks"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 code/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ludfra-7/git/gitlab/Path tracer/build/CMakeFiles" 0
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/CMakeFiles" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/code/CMakeFiles/progress.marks"
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 code/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 code/clean
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 code/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 code/preinstall
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 code/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 code/preinstall
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 code/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 code/CMakeFiles/code.dir/rule:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 code/CMakeFiles/code.dir/rule
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f CMakeFiles/Makefile2 code/CMakeFiles/code.dir/rule
 .PHONY : code/CMakeFiles/code.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ code: code/CMakeFiles/code.dir/rule
 
 # fast build rule for target.
 code/fast:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/build
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/build
 .PHONY : code/fast
 
 Math4D.o: Math4D.cpp.o
@@ -131,7 +131,7 @@ Math4D.o: Math4D.cpp.o
 
 # target to build an object file
 Math4D.cpp.o:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/Math4D.cpp.o
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/Math4D.cpp.o
 .PHONY : Math4D.cpp.o
 
 Math4D.i: Math4D.cpp.i
@@ -140,7 +140,7 @@ Math4D.i: Math4D.cpp.i
 
 # target to preprocess a source file
 Math4D.cpp.i:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/Math4D.cpp.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/Math4D.cpp.i
 .PHONY : Math4D.cpp.i
 
 Math4D.s: Math4D.cpp.s
@@ -149,7 +149,7 @@ Math4D.s: Math4D.cpp.s
 
 # target to generate assembly for a file
 Math4D.cpp.s:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/Math4D.cpp.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/Math4D.cpp.s
 .PHONY : Math4D.cpp.s
 
 camera.o: camera.cpp.o
@@ -158,7 +158,7 @@ camera.o: camera.cpp.o
 
 # target to build an object file
 camera.cpp.o:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/camera.cpp.o
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/camera.cpp.o
 .PHONY : camera.cpp.o
 
 camera.i: camera.cpp.i
@@ -167,7 +167,7 @@ camera.i: camera.cpp.i
 
 # target to preprocess a source file
 camera.cpp.i:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/camera.cpp.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/camera.cpp.i
 .PHONY : camera.cpp.i
 
 camera.s: camera.cpp.s
@@ -176,7 +176,7 @@ camera.s: camera.cpp.s
 
 # target to generate assembly for a file
 camera.cpp.s:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/camera.cpp.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/camera.cpp.s
 .PHONY : camera.cpp.s
 
 exampleapp.o: exampleapp.cpp.o
@@ -185,7 +185,7 @@ exampleapp.o: exampleapp.cpp.o
 
 # target to build an object file
 exampleapp.cpp.o:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/exampleapp.cpp.o
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/exampleapp.cpp.o
 .PHONY : exampleapp.cpp.o
 
 exampleapp.i: exampleapp.cpp.i
@@ -194,7 +194,7 @@ exampleapp.i: exampleapp.cpp.i
 
 # target to preprocess a source file
 exampleapp.cpp.i:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/exampleapp.cpp.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/exampleapp.cpp.i
 .PHONY : exampleapp.cpp.i
 
 exampleapp.s: exampleapp.cpp.s
@@ -203,7 +203,7 @@ exampleapp.s: exampleapp.cpp.s
 
 # target to generate assembly for a file
 exampleapp.cpp.s:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/exampleapp.cpp.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/exampleapp.cpp.s
 .PHONY : exampleapp.cpp.s
 
 graphicsNode.o: graphicsNode.cpp.o
@@ -212,7 +212,7 @@ graphicsNode.o: graphicsNode.cpp.o
 
 # target to build an object file
 graphicsNode.cpp.o:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/graphicsNode.cpp.o
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/graphicsNode.cpp.o
 .PHONY : graphicsNode.cpp.o
 
 graphicsNode.i: graphicsNode.cpp.i
@@ -221,7 +221,7 @@ graphicsNode.i: graphicsNode.cpp.i
 
 # target to preprocess a source file
 graphicsNode.cpp.i:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/graphicsNode.cpp.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/graphicsNode.cpp.i
 .PHONY : graphicsNode.cpp.i
 
 graphicsNode.s: graphicsNode.cpp.s
@@ -230,7 +230,7 @@ graphicsNode.s: graphicsNode.cpp.s
 
 # target to generate assembly for a file
 graphicsNode.cpp.s:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/graphicsNode.cpp.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/graphicsNode.cpp.s
 .PHONY : graphicsNode.cpp.s
 
 lightNode.o: lightNode.cpp.o
@@ -239,7 +239,7 @@ lightNode.o: lightNode.cpp.o
 
 # target to build an object file
 lightNode.cpp.o:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/lightNode.cpp.o
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/lightNode.cpp.o
 .PHONY : lightNode.cpp.o
 
 lightNode.i: lightNode.cpp.i
@@ -248,7 +248,7 @@ lightNode.i: lightNode.cpp.i
 
 # target to preprocess a source file
 lightNode.cpp.i:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/lightNode.cpp.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/lightNode.cpp.i
 .PHONY : lightNode.cpp.i
 
 lightNode.s: lightNode.cpp.s
@@ -257,7 +257,7 @@ lightNode.s: lightNode.cpp.s
 
 # target to generate assembly for a file
 lightNode.cpp.s:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/lightNode.cpp.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/lightNode.cpp.s
 .PHONY : lightNode.cpp.s
 
 main.o: main.cpp.o
@@ -266,7 +266,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/main.cpp.o
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -275,7 +275,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/main.cpp.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -284,7 +284,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/main.cpp.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 mesh.o: mesh.cpp.o
@@ -293,7 +293,7 @@ mesh.o: mesh.cpp.o
 
 # target to build an object file
 mesh.cpp.o:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/mesh.cpp.o
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/mesh.cpp.o
 .PHONY : mesh.cpp.o
 
 mesh.i: mesh.cpp.i
@@ -302,7 +302,7 @@ mesh.i: mesh.cpp.i
 
 # target to preprocess a source file
 mesh.cpp.i:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/mesh.cpp.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/mesh.cpp.i
 .PHONY : mesh.cpp.i
 
 mesh.s: mesh.cpp.s
@@ -311,8 +311,62 @@ mesh.s: mesh.cpp.s
 
 # target to generate assembly for a file
 mesh.cpp.s:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/mesh.cpp.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/mesh.cpp.s
 .PHONY : mesh.cpp.s
+
+pathtracer.o: pathtracer.cpp.o
+
+.PHONY : pathtracer.o
+
+# target to build an object file
+pathtracer.cpp.o:
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/pathtracer.cpp.o
+.PHONY : pathtracer.cpp.o
+
+pathtracer.i: pathtracer.cpp.i
+
+.PHONY : pathtracer.i
+
+# target to preprocess a source file
+pathtracer.cpp.i:
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/pathtracer.cpp.i
+.PHONY : pathtracer.cpp.i
+
+pathtracer.s: pathtracer.cpp.s
+
+.PHONY : pathtracer.s
+
+# target to generate assembly for a file
+pathtracer.cpp.s:
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/pathtracer.cpp.s
+.PHONY : pathtracer.cpp.s
+
+scene.o: scene.cpp.o
+
+.PHONY : scene.o
+
+# target to build an object file
+scene.cpp.o:
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/scene.cpp.o
+.PHONY : scene.cpp.o
+
+scene.i: scene.cpp.i
+
+.PHONY : scene.i
+
+# target to preprocess a source file
+scene.cpp.i:
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/scene.cpp.i
+.PHONY : scene.cpp.i
+
+scene.s: scene.cpp.s
+
+.PHONY : scene.s
+
+# target to generate assembly for a file
+scene.cpp.s:
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/scene.cpp.s
+.PHONY : scene.cpp.s
 
 shaderResource.o: shaderResource.cpp.o
 
@@ -320,7 +374,7 @@ shaderResource.o: shaderResource.cpp.o
 
 # target to build an object file
 shaderResource.cpp.o:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/shaderResource.cpp.o
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/shaderResource.cpp.o
 .PHONY : shaderResource.cpp.o
 
 shaderResource.i: shaderResource.cpp.i
@@ -329,7 +383,7 @@ shaderResource.i: shaderResource.cpp.i
 
 # target to preprocess a source file
 shaderResource.cpp.i:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/shaderResource.cpp.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/shaderResource.cpp.i
 .PHONY : shaderResource.cpp.i
 
 shaderResource.s: shaderResource.cpp.s
@@ -338,7 +392,7 @@ shaderResource.s: shaderResource.cpp.s
 
 # target to generate assembly for a file
 shaderResource.cpp.s:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/shaderResource.cpp.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/shaderResource.cpp.s
 .PHONY : shaderResource.cpp.s
 
 textureResource.o: textureResource.cpp.o
@@ -347,7 +401,7 @@ textureResource.o: textureResource.cpp.o
 
 # target to build an object file
 textureResource.cpp.o:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/textureResource.cpp.o
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/textureResource.cpp.o
 .PHONY : textureResource.cpp.o
 
 textureResource.i: textureResource.cpp.i
@@ -356,7 +410,7 @@ textureResource.i: textureResource.cpp.i
 
 # target to preprocess a source file
 textureResource.cpp.i:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/textureResource.cpp.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/textureResource.cpp.i
 .PHONY : textureResource.cpp.i
 
 textureResource.s: textureResource.cpp.s
@@ -365,7 +419,7 @@ textureResource.s: textureResource.cpp.s
 
 # target to generate assembly for a file
 textureResource.cpp.s:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/textureResource.cpp.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(MAKE) -f code/CMakeFiles/code.dir/build.make code/CMakeFiles/code.dir/textureResource.cpp.s
 .PHONY : textureResource.cpp.s
 
 # Help Target
@@ -398,6 +452,12 @@ help:
 	@echo "... mesh.o"
 	@echo "... mesh.i"
 	@echo "... mesh.s"
+	@echo "... pathtracer.o"
+	@echo "... pathtracer.i"
+	@echo "... pathtracer.s"
+	@echo "... scene.o"
+	@echo "... scene.i"
+	@echo "... scene.s"
 	@echo "... shaderResource.o"
 	@echo "... shaderResource.i"
 	@echo "... shaderResource.s"
@@ -415,6 +475,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

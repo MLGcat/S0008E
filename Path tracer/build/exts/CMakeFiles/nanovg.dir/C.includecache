@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/fontstash.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/fontstash.h
 ft2build.h
 -
 math.h
 -
 stb_truetype.h
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/stb_truetype.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/stb_truetype.h
 
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/nanovg.c
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/nanovg.c
 stdlib.h
 -
 stdio.h
@@ -24,17 +24,17 @@ math.h
 memory.h
 -
 nanovg.h
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/nanovg.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/nanovg.h
 fontstash.h
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/fontstash.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/fontstash.h
 stb_image.h
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/stb_image.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/stb_image.h
 
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/nanovg.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/nanovg.h
 
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/stb_image.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/stb_image.h
 stb_image.h
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/stb_image.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/stb_image.h
 stdio.h
 -
 stdarg.h
@@ -60,13 +60,13 @@ intrin.h
 arm_neon.h
 -
 
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/stb_truetype.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/stb_truetype.h
 stb_truetype.h
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/stb_truetype.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/stb_truetype.h
 stdio.h
 -
 stb_truetype.h
-/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/stb_truetype.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/stb_truetype.h
 math.h
 -
 math.h

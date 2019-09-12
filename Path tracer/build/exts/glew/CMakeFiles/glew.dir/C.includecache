@@ -46,7 +46,7 @@ GL/glew.h
 windows.h
 -
 
-/home/ludfra-7/git/gitlab/Path tracer/exts/glew/src/glew.c
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/glew/src/glew.c
 GL/glew.h
 -
 GL/osmesa.h

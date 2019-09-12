@@ -6,4 +6,4 @@ exts/glew/CMakeFiles/glew.dir/src/glew.c.o
  ../exts/glew/include/GL/glew.h
  ../exts/glew/include/GL/glxew.h
  ../exts/glew/include/GL/wglew.h
- /home/ludfra-7/git/gitlab/Path tracer/exts/glew/src/glew.c
+ /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/glew/src/glew.c

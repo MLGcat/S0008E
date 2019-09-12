@@ -2119,7 +2119,7 @@ static void _glewInfo_GL_ARB_gpu_shader_fp64 (void)
   glewInfoFunc("glUniformMatrix3dv", glUniformMatrix3dv == NULL);
   glewInfoFunc("glUniformMatrix3x2dv", glUniformMatrix3x2dv == NULL);
   glewInfoFunc("glUniformMatrix3x4dv", glUniformMatrix3x4dv == NULL);
-  glewInfoFunc("glUniformMatrix4dv", glUniformMatrix4dv == NULL);
+  glewInfoFunc("glUniformmat4v", glUniformmat4v == NULL);
   glewInfoFunc("glUniformMatrix4x2dv", glUniformMatrix4x2dv == NULL);
   glewInfoFunc("glUniformMatrix4x3dv", glUniformMatrix4x3dv == NULL);
 }
@@ -2728,7 +2728,7 @@ static void _glewInfo_GL_ARB_separate_shader_objects (void)
   glewInfoFunc("glProgramUniformMatrix3x2fv", glProgramUniformMatrix3x2fv == NULL);
   glewInfoFunc("glProgramUniformMatrix3x4dv", glProgramUniformMatrix3x4dv == NULL);
   glewInfoFunc("glProgramUniformMatrix3x4fv", glProgramUniformMatrix3x4fv == NULL);
-  glewInfoFunc("glProgramUniformMatrix4dv", glProgramUniformMatrix4dv == NULL);
+  glewInfoFunc("glProgramUniformmat4v", glProgramUniformmat4v == NULL);
   glewInfoFunc("glProgramUniformMatrix4fv", glProgramUniformMatrix4fv == NULL);
   glewInfoFunc("glProgramUniformMatrix4x2dv", glProgramUniformMatrix4x2dv == NULL);
   glewInfoFunc("glProgramUniformMatrix4x2fv", glProgramUniformMatrix4x2fv == NULL);

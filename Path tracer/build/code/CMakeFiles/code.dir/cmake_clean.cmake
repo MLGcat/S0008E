@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/code.dir/lightNode.cpp.o"
   "CMakeFiles/code.dir/main.cpp.o"
   "CMakeFiles/code.dir/mesh.cpp.o"
+  "CMakeFiles/code.dir/pathtracer.cpp.o"
+  "CMakeFiles/code.dir/scene.cpp.o"
   "CMakeFiles/code.dir/shaderResource.cpp.o"
   "CMakeFiles/code.dir/textureResource.cpp.o"
 )

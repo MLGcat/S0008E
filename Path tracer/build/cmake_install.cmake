@@ -1,4 +1,4 @@
-# Install script for directory: /home/ludfra-7/git/gitlab/Path tracer
+# Install script for directory: /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,10 +39,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ludfra-7/git/gitlab/Path tracer/build/exts/cmake_install.cmake")
-  include("/home/ludfra-7/git/gitlab/Path tracer/build/engine/cmake_install.cmake")
-  include("/home/ludfra-7/git/gitlab/Path tracer/build/ImGuiExample/cmake_install.cmake")
-  include("/home/ludfra-7/git/gitlab/Path tracer/build/code/cmake_install.cmake")
+  include("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/cmake_install.cmake")
+  include("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/cmake_install.cmake")
+  include("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/ImGuiExample/cmake_install.cmake")
+  include("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/code/cmake_install.cmake")
 
 endif()
 
@@ -54,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ludfra-7/git/gitlab/Path tracer/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

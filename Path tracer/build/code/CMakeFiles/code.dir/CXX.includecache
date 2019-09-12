@@ -120,95 +120,65 @@ intrin.h
 arm_neon.h
 -
 
-/home/ludfra-7/git/gitlab/Path tracer/code/Math4D.cpp
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/Math4D.cpp
 Math4D.h
-/home/ludfra-7/git/gitlab/Path tracer/code/Math4D.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/Math4D.h
 
-/home/ludfra-7/git/gitlab/Path tracer/code/Math4D.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/Math4D.h
 iostream
 -
 math.h
 -
 
-/home/ludfra-7/git/gitlab/Path tracer/code/camera.cpp
-camera.h
-/home/ludfra-7/git/gitlab/Path tracer/code/camera.h
-
-/home/ludfra-7/git/gitlab/Path tracer/code/camera.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/camera.h
 Math4D.h
-/home/ludfra-7/git/gitlab/Path tracer/code/Math4D.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/Math4D.h
 
-/home/ludfra-7/git/gitlab/Path tracer/code/exampleapp.cpp
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/exampleapp.cpp
 config.h
-/home/ludfra-7/git/gitlab/Path tracer/code/config.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/config.h
 exampleapp.h
-/home/ludfra-7/git/gitlab/Path tracer/code/exampleapp.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/exampleapp.h
 cstring
 -
-mesh.h
-/home/ludfra-7/git/gitlab/Path tracer/code/mesh.h
-camera.h
-/home/ludfra-7/git/gitlab/Path tracer/code/camera.h
-textureResource.h
-/home/ludfra-7/git/gitlab/Path tracer/code/textureResource.h
-shaderResource.h
-/home/ludfra-7/git/gitlab/Path tracer/code/shaderResource.h
-graphicsNode.h
-/home/ludfra-7/git/gitlab/Path tracer/code/graphicsNode.h
-lightNode.h
-/home/ludfra-7/git/gitlab/Path tracer/code/lightNode.h
+scene.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/scene.h
+pathtracer.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/pathtracer.h
 
-/home/ludfra-7/git/gitlab/Path tracer/code/exampleapp.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/exampleapp.h
 core/app.h
-/home/ludfra-7/git/gitlab/Path tracer/code/core/app.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/core/app.h
 render/window.h
-/home/ludfra-7/git/gitlab/Path tracer/code/render/window.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/render/window.h
 
-/home/ludfra-7/git/gitlab/Path tracer/code/graphicsNode.cpp
-graphicsNode.h
-/home/ludfra-7/git/gitlab/Path tracer/code/graphicsNode.h
-
-/home/ludfra-7/git/gitlab/Path tracer/code/graphicsNode.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/graphicsNode.h
 memory
 -
 mesh.h
-/home/ludfra-7/git/gitlab/Path tracer/code/mesh.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/mesh.h
 textureResource.h
-/home/ludfra-7/git/gitlab/Path tracer/code/textureResource.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/textureResource.h
 shaderResource.h
-/home/ludfra-7/git/gitlab/Path tracer/code/shaderResource.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/shaderResource.h
 camera.h
-/home/ludfra-7/git/gitlab/Path tracer/code/camera.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/camera.h
 lightNode.h
-/home/ludfra-7/git/gitlab/Path tracer/code/lightNode.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/lightNode.h
 
-/home/ludfra-7/git/gitlab/Path tracer/code/lightNode.cpp
-lightNode.h
-/home/ludfra-7/git/gitlab/Path tracer/code/lightNode.h
-
-/home/ludfra-7/git/gitlab/Path tracer/code/lightNode.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/lightNode.h
 Math4D.h
-/home/ludfra-7/git/gitlab/Path tracer/code/Math4D.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/Math4D.h
 
-/home/ludfra-7/git/gitlab/Path tracer/code/main.cpp
-config.h
-/home/ludfra-7/git/gitlab/Path tracer/code/config.h
-exampleapp.h
-/home/ludfra-7/git/gitlab/Path tracer/code/exampleapp.h
-
-/home/ludfra-7/git/gitlab/Path tracer/code/mesh.cpp
-mesh.h
-/home/ludfra-7/git/gitlab/Path tracer/code/mesh.h
-
-/home/ludfra-7/git/gitlab/Path tracer/code/mesh.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/mesh.h
 Math4D.h
-/home/ludfra-7/git/gitlab/Path tracer/code/Math4D.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/Math4D.h
 config.h
-/home/ludfra-7/git/gitlab/Path tracer/code/config.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/config.h
 render/window.h
-/home/ludfra-7/git/gitlab/Path tracer/code/render/window.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/render/window.h
 core/app.h
-/home/ludfra-7/git/gitlab/Path tracer/code/core/app.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/core/app.h
 iostream
 -
 vector
@@ -216,13 +186,35 @@ vector
 string.h
 -
 
-/home/ludfra-7/git/gitlab/Path tracer/code/shaderResource.cpp
-shaderResource.h
-/home/ludfra-7/git/gitlab/Path tracer/code/shaderResource.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/pathtracer.cpp
+pathtracer.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/pathtracer.h
 
-/home/ludfra-7/git/gitlab/Path tracer/code/shaderResource.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/pathtracer.h
+Math4D.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/Math4D.h
+vector
+-
+
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/scene.h
+Math4D.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/Math4D.h
+mesh.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/mesh.h
+camera.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/camera.h
+textureResource.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/textureResource.h
+shaderResource.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/shaderResource.h
+graphicsNode.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/graphicsNode.h
+lightNode.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/lightNode.h
+
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/shaderResource.h
 core/app.h
-/home/ludfra-7/git/gitlab/Path tracer/code/core/app.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/core/app.h
 fstream
 -
 stdlib.h
@@ -232,13 +224,9 @@ iostream
 string.h
 -
 
-/home/ludfra-7/git/gitlab/Path tracer/code/textureResource.cpp
-textureResource.h
-/home/ludfra-7/git/gitlab/Path tracer/code/textureResource.h
-
-/home/ludfra-7/git/gitlab/Path tracer/code/textureResource.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/textureResource.h
 core/app.h
-/home/ludfra-7/git/gitlab/Path tracer/code/core/app.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/core/app.h
 stdio.h
 -
 stdlib.h

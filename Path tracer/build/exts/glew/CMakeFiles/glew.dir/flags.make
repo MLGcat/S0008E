@@ -6,5 +6,5 @@ C_FLAGS = -g
 
 C_DEFINES = -DGLEW_STATIC
 
-C_INCLUDES = -I"/home/ludfra-7/git/gitlab/Path tracer/exts/glew/include" 
+C_INCLUDES = -I"/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/glew/include" 
 

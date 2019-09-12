@@ -110,27 +110,27 @@ imgui_user.h
 
 ../exts/nanovg/src/nanovg.h
 
-/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/exampleapp.cc
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/exampleapp.cc
 config.h
-/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/config.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/config.h
 exampleapp.h
-/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/exampleapp.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/exampleapp.h
 string
 -
 cstring
 -
 imgui.h
-/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/imgui.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/imgui.h
 
-/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/exampleapp.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/exampleapp.h
 core/app.h
-/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/core/app.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/core/app.h
 render/window.h
-/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/render/window.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/render/window.h
 
-/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/main.cc
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/main.cc
 config.h
-/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/config.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/config.h
 exampleapp.h
-/home/ludfra-7/git/gitlab/Path tracer/ImGuiExample/code/exampleapp.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/ImGuiExample/code/exampleapp.h
 

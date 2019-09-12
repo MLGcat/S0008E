@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/ludfra-7/git/gitlab/Path tracer/exts/nanovg/src/nanovg.c" "/home/ludfra-7/git/gitlab/Path tracer/build/exts/CMakeFiles/nanovg.dir/nanovg/src/nanovg.c.o"
+  "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/nanovg/src/nanovg.c" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/CMakeFiles/nanovg.dir/nanovg/src/nanovg.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -24,7 +24,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/ludfra-7/git/gitlab/Path tracer/build/exts/CMakeFiles/imgui.dir/DependInfo.cmake"
+  "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/CMakeFiles/imgui.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

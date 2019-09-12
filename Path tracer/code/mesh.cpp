@@ -58,9 +58,9 @@ void meshResource::load(char* src) {
 		return;
 	}
 
-	std::vector<vector4D> vertVec;
-	std::vector<vector4D> normVec;
-	std::vector<vector4D> uvVec;
+	std::vector<vec4> vertVec;
+	std::vector<vec4> normVec;
+	std::vector<vec4> uvVec;
 	std::vector<face> faceVec;
 
 	char line[128];
@@ -69,21 +69,21 @@ void meshResource::load(char* src) {
 		if (strcmp(line, "v") == 0) {
 			float x,y,z = 0;
 			fscanf(file, "%f %f %f\n", &x, &y, &z);
-			vector4D vert(x, y, z);
+			vec4 vert(x, y, z);
 			vertVec.push_back(vert);
 			//std::cout << "v " << x << ", " << y << ", " << z << " (" << vertsVec.size() << ")" << std::endl;
 		}
 		else if(strcmp(line, "vt")==0){
 			float x, y = 0;
 			fscanf(file, "%f %f\n", &x, &y);
-			vector4D uv(x, y, 0);
+			vec4 uv(x, y, 0);
 			uvVec.push_back(uv);
 			//std::cout << "vt " << x << ", " << y << " (" << uvVec.size() << ")" << std::endl;
 		}
 		else if (strcmp(line, "vn") == 0) {
 			float x, y, z = 0;
 			fscanf(file, "%f %f %f\n", &x, &y, &z);
-			vector4D norm(x, y, z);
+			vec4 norm(x, y, z);
 			normVec.push_back(norm);
 			//std::cout << "vn " << x << ", " << y << ", " << z << " (" << normVec.size() << ")" << std::endl;
 		}
@@ -96,7 +96,7 @@ void meshResource::load(char* src) {
 				&tempFace.verts[1].coord, &tempFace.verts[1].uv, &tempFace.verts[1].normal,
 				&tempFace.verts[2].coord, &tempFace.verts[2].uv, &tempFace.verts[2].normal,
 				&tempFace2.verts[0].coord, &tempFace2.verts[0].uv, &tempFace2.verts[0].normal);
-			if (tempFace2.verts[0].coord != -1083184041 && tempFace2.verts[0].coord !=1060164023) {
+			if (matches > 9) {
 				tempFace2.verts[1] = tempFace.verts[0];
 				tempFace2.verts[2] = tempFace.verts[2];
 				faceVec.push_back(tempFace2);

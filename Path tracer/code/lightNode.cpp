@@ -8,7 +8,7 @@ light::~light() {
 
 }
 
-light::light(vector4D pos, vector4D color, float intensity) {
+light::light(vec4 pos, vec4 color, float intensity) {
 	pos[0] = pos[0];
 	pos[1] = pos[1];
 	pos[2] = -pos[2];
@@ -41,7 +41,7 @@ void light::setPos(float x, float y, float z) {
 	pos[3] = 0;
 }
 
-void light::setPos(vector4D pos) {
+void light::setPos(vec4 pos) {
 	this->pos[0] = pos[0];
 	this->pos[1] = pos[1];
 	this->pos[2] = pos[2];
@@ -54,7 +54,7 @@ void light::setColor(unsigned int r, unsigned int g, unsigned int b) {
 	color[2] = b;
 }
 
-void light::setColor(vector4D color) {
+void light::setColor(vec4 color) {
 	color[0] = abs(color[0]);
 	color[1] = abs(color[1]);
 	color[2] = abs(color[2]);

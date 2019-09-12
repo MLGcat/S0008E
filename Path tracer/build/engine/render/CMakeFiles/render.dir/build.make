@@ -43,10 +43,10 @@ RM = /var/lib/snapd/snap/cmake/89/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ludfra-7/git/gitlab/Path tracer"
+CMAKE_SOURCE_DIR = "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ludfra-7/git/gitlab/Path tracer/build"
+CMAKE_BINARY_DIR = "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build"
 
 # Include any dependencies generated for this target.
 include engine/render/CMakeFiles/render.dir/depend.make
@@ -59,29 +59,29 @@ include engine/render/CMakeFiles/render.dir/flags.make
 
 engine/render/CMakeFiles/render.dir/window.cc.o: engine/render/CMakeFiles/render.dir/flags.make
 engine/render/CMakeFiles/render.dir/window.cc.o: ../engine/render/window.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ludfra-7/git/gitlab/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object engine/render/CMakeFiles/render.dir/window.cc.o"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render" && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render.dir/window.cc.o -c "/home/ludfra-7/git/gitlab/Path tracer/engine/render/window.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object engine/render/CMakeFiles/render.dir/window.cc.o"
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render" && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render.dir/window.cc.o -c "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/render/window.cc"
 
 engine/render/CMakeFiles/render.dir/window.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render.dir/window.cc.i"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ludfra-7/git/gitlab/Path tracer/engine/render/window.cc" > CMakeFiles/render.dir/window.cc.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/render/window.cc" > CMakeFiles/render.dir/window.cc.i
 
 engine/render/CMakeFiles/render.dir/window.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render.dir/window.cc.s"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ludfra-7/git/gitlab/Path tracer/engine/render/window.cc" -o CMakeFiles/render.dir/window.cc.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/render/window.cc" -o CMakeFiles/render.dir/window.cc.s
 
 engine/render/CMakeFiles/render.dir/__/config.cc.o: engine/render/CMakeFiles/render.dir/flags.make
 engine/render/CMakeFiles/render.dir/__/config.cc.o: ../engine/config.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ludfra-7/git/gitlab/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object engine/render/CMakeFiles/render.dir/__/config.cc.o"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render" && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render.dir/__/config.cc.o -c "/home/ludfra-7/git/gitlab/Path tracer/engine/config.cc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object engine/render/CMakeFiles/render.dir/__/config.cc.o"
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render" && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/render.dir/__/config.cc.o -c "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/config.cc"
 
 engine/render/CMakeFiles/render.dir/__/config.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/render.dir/__/config.cc.i"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ludfra-7/git/gitlab/Path tracer/engine/config.cc" > CMakeFiles/render.dir/__/config.cc.i
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/config.cc" > CMakeFiles/render.dir/__/config.cc.i
 
 engine/render/CMakeFiles/render.dir/__/config.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/render.dir/__/config.cc.s"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ludfra-7/git/gitlab/Path tracer/engine/config.cc" -o CMakeFiles/render.dir/__/config.cc.s
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render" && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/config.cc" -o CMakeFiles/render.dir/__/config.cc.s
 
 # Object files for target render
 render_OBJECTS = \
@@ -95,9 +95,9 @@ engine/render/librender.a: engine/render/CMakeFiles/render.dir/window.cc.o
 engine/render/librender.a: engine/render/CMakeFiles/render.dir/__/config.cc.o
 engine/render/librender.a: engine/render/CMakeFiles/render.dir/build.make
 engine/render/librender.a: engine/render/CMakeFiles/render.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ludfra-7/git/gitlab/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library librender.a"
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render" && $(CMAKE_COMMAND) -P CMakeFiles/render.dir/cmake_clean_target.cmake
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/render.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library librender.a"
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render" && $(CMAKE_COMMAND) -P CMakeFiles/render.dir/cmake_clean_target.cmake
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/render.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 engine/render/CMakeFiles/render.dir/build: engine/render/librender.a
@@ -105,10 +105,10 @@ engine/render/CMakeFiles/render.dir/build: engine/render/librender.a
 .PHONY : engine/render/CMakeFiles/render.dir/build
 
 engine/render/CMakeFiles/render.dir/clean:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render" && $(CMAKE_COMMAND) -P CMakeFiles/render.dir/cmake_clean.cmake
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render" && $(CMAKE_COMMAND) -P CMakeFiles/render.dir/cmake_clean.cmake
 .PHONY : engine/render/CMakeFiles/render.dir/clean
 
 engine/render/CMakeFiles/render.dir/depend:
-	cd "/home/ludfra-7/git/gitlab/Path tracer/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ludfra-7/git/gitlab/Path tracer" "/home/ludfra-7/git/gitlab/Path tracer/engine/render" "/home/ludfra-7/git/gitlab/Path tracer/build" "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render" "/home/ludfra-7/git/gitlab/Path tracer/build/engine/render/CMakeFiles/render.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/render" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/engine/render/CMakeFiles/render.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : engine/render/CMakeFiles/render.dir/depend
 

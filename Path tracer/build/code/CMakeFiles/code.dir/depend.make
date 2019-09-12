@@ -22,6 +22,8 @@ code/CMakeFiles/code.dir/exampleapp.cpp.o: ../code/exampleapp.h
 code/CMakeFiles/code.dir/exampleapp.cpp.o: ../code/graphicsNode.h
 code/CMakeFiles/code.dir/exampleapp.cpp.o: ../code/lightNode.h
 code/CMakeFiles/code.dir/exampleapp.cpp.o: ../code/mesh.h
+code/CMakeFiles/code.dir/exampleapp.cpp.o: ../code/pathtracer.h
+code/CMakeFiles/code.dir/exampleapp.cpp.o: ../code/scene.h
 code/CMakeFiles/code.dir/exampleapp.cpp.o: ../code/shaderResource.h
 code/CMakeFiles/code.dir/exampleapp.cpp.o: ../code/textureResource.h
 
@@ -63,6 +65,27 @@ code/CMakeFiles/code.dir/mesh.cpp.o: ../exts/nanovg/src/nanovg.h
 code/CMakeFiles/code.dir/mesh.cpp.o: ../code/Math4D.h
 code/CMakeFiles/code.dir/mesh.cpp.o: ../code/mesh.cpp
 code/CMakeFiles/code.dir/mesh.cpp.o: ../code/mesh.h
+
+code/CMakeFiles/code.dir/pathtracer.cpp.o: ../code/Math4D.h
+code/CMakeFiles/code.dir/pathtracer.cpp.o: ../code/pathtracer.cpp
+code/CMakeFiles/code.dir/pathtracer.cpp.o: ../code/pathtracer.h
+
+code/CMakeFiles/code.dir/scene.cpp.o: ../engine/config.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../engine/core/app.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../engine/render/window.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../exts/glew/include/GL/glew.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../exts/glfw/include/GLFW/glfw3.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../exts/nanovg/src/nanovg.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../exts/nanovg/src/stb_image.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../code/Math4D.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../code/camera.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../code/graphicsNode.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../code/lightNode.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../code/mesh.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../code/scene.cpp
+code/CMakeFiles/code.dir/scene.cpp.o: ../code/scene.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../code/shaderResource.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../code/textureResource.h
 
 code/CMakeFiles/code.dir/shaderResource.cpp.o: ../engine/core/app.h
 code/CMakeFiles/code.dir/shaderResource.cpp.o: ../exts/glew/include/GL/glew.h

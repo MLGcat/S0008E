@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/ludfra-7/git/gitlab/Path tracer/exts/glew/src/glew.c" "/home/ludfra-7/git/gitlab/Path tracer/build/exts/glew/CMakeFiles/glew.dir/src/glew.c.o"
+  "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/exts/glew/src/glew.c" "/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/build/exts/glew/CMakeFiles/glew.dir/src/glew.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

@@ -6,12 +6,8 @@
 #include "exampleapp.h"
 #include <cstring>
 
-#include "mesh.h"
-#include "camera.h"
-#include "textureResource.h"
-#include "shaderResource.h"
-#include "graphicsNode.h"
-#include "lightNode.h"
+#include "scene.h"
+#include "pathtracer.h"
 
 byte wasd[4] = {0,0,0,0};
 float cameraSpeed = 0.1;
@@ -112,17 +108,25 @@ ExampleApp::Open()
 void
 ExampleApp::Run()
 {
+	scene mainScene;
+
+	//GUI SHADER
+	shaderResource UIShader;
+	UIShader.loadV("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/Shaders/GUIVertexShader.txt");
+	UIShader.loadF("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/Shaders/UnlitFragmentShader.txt");
+	UIShader.compile();
+	UIShader.use();
 
 	//SHADER
 	shaderResource shader;
-	shader.loadV("/home/ludfra-7/git/gitlab/lab-env/Shaders/VertexShader.txt");
-	shader.loadF("/home/ludfra-7/git/gitlab/lab-env/Shaders/LitFragmentShader.txt");
+	shader.loadV("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/Shaders/VertexShader.txt");
+	shader.loadF("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/Shaders/LitFragmentShader.txt");
 	shader.compile();
 	shader.use();
 
 	//MESH
 	meshResource mesh;
-	mesh.load("/home/ludfra-7/git/gitlab/lab-env/Models/hmm.obj");
+	mesh.load("/home/ludfra-7/git/gitlab/lab-env/Models/highSphere.obj");
 
 	//LIGHTS
 	light* lightArray[2];
@@ -131,11 +135,15 @@ ExampleApp::Run()
 	light l2(5, 0, 0, 1, 1, 1, 0.1);
 	lightArray[1] = &l2;
 
+	mainScene.addLight(l);
+	mainScene.addLight(l2);
 
 	//TEXTURE
 	textureResource texture;
 	texture.loadTexture("/home/ludfra-7/git/gitlab/lab-env/Models/hmm.bmp");
+
 	
+
 	//GRAPHIC NODES
 	graphicsNode graphic;
 	graphic.setMesh(mesh);
@@ -147,16 +155,19 @@ ExampleApp::Run()
 	graphic.transform(0, 0, 0);
 	graphic.specColor(1, 1, 1, 64, 64);
 
+	mainScene.addObject(graphic);
+
 	graphicsNode graphic2;
 	graphic2.setMesh(mesh);
 	graphic2.setShader(shader);
 	graphic2.setTexture(texture);
 	graphic2.specColor(1, 1, 1, 32, 64);
 
-
 	graphic2.rotation(0, 0, 0);
 	graphic2.scale(3, 3, 3);
 	graphic2.transform(-10, 0, 0);
+
+	mainScene.addObject(graphic2);
 
 	graphicsNode graphic3;
 	graphic3.setMesh(mesh);
@@ -168,6 +179,8 @@ ExampleApp::Run()
 	graphic3.scale(3, 3, 3);
 	graphic3.transform(10, 0, 0);
 
+	mainScene.addObject(graphic3);
+
 	graphicsNode graphic4;
 	graphic4.setMesh(mesh);
 	graphic4.setShader(shader);
@@ -178,6 +191,7 @@ ExampleApp::Run()
 	graphic4.scale(3, 3, 3);
 	graphic4.transform(0, 0, 10);
 
+	mainScene.addObject(graphic4);
 
 	//CAMERA
 	camera cam(1, 100, 50, 1);
@@ -201,6 +215,25 @@ ExampleApp::Run()
 
 	float i = 0;
 
+	//PATH TRACER
+	meshResource plane;
+	plane.load("/home/ludfra-7/git/gitlab/lab-env/Models/plane.obj");
+
+	PathTracer pathTracer(1000,1000);
+	textureResource renderOutput;
+	renderOutput.img = pathTracer.Render(10, renderOutput.width, renderOutput.height);
+	graphicsNode renderResult;
+	renderResult.setMesh(plane);
+	renderResult.setShader(UIShader);
+	renderResult.setTexture(renderOutput);
+	renderResult.specColor(1, 0, 0, 16, 64);
+
+	renderResult.rotation(0, 0, 0);
+	renderResult.scale(3, 3, 3);
+	renderResult.transform(0, 0, 10);
+
+	mainScene.addObject(renderResult);
+	
 
 	while (this->window->IsOpen())
 	{
@@ -224,27 +257,7 @@ ExampleApp::Run()
 		{
 			activeCamera->move(cameraSpeed, 0, 0);
 		}
-
-
-		glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-		float dist = 10;
-
-		//Animates objects
-		graphic.rotation(100*i, 0, 0);
-
-		//graphic2.transform((5+dist)*sin(i),(5+dist)*cos(i), 0);
-		//graphic3.transform((-5-dist)*sin(i), (-5-dist)*cos(i), 0);
-		l.setPos((5+dist)*sin(i),(5+dist)*cos(i), 0);
-		l2.setPos((-5-dist)*sin(i), (-5-dist)*cos(i), 0);
-
-		//#######################################################################################################
-
-		//Draws objects
-		graphic.draw(cam, lightArray,  2);
-		graphic2.draw(cam, lightArray, 2);
-		graphic3.draw(cam, lightArray, 2);
-		graphic4.draw(cam, lightArray, 2);
-
+		mainScene.draw(*activeCamera);
 		this->window->Update();
 		this->window->SwapBuffers();
 	}

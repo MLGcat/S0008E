@@ -1,4 +1,4 @@
-# Install script for directory: /home/ludfra-7/git/gitlab/Path tracer/engine/render
+# Install script for directory: /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/render
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
