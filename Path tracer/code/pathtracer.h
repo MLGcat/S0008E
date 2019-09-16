@@ -5,7 +5,7 @@
 class Ray
 {
 public:
-    Ray();
+    Ray(){};
     Ray(const vec4& origin, const vec4& direction) {Origin = origin; Direction = direction;};
     vec4 GetPoint(float t) {return Origin + Direction * t; };
     vec4 Origin;
@@ -35,20 +35,43 @@ public:
         return vec4(2*drand48()-1,2*drand48()-1,2*drand48()).norm();
     }
 
-    vec4 reflect(const vec4 & in, const vec4 & normal) const
+    vec4 Reflect(const vec4 & in, const vec4 & normal) const
     {
-        return in - (normal*(in*normal));
+        float proj = normal*in;
+        return in - (normal*(in*normal*2));
+    }
+
+    bool refract(const vec4 & in, const vec4 & normal, float IORs, vec4& refracted)
+    {
+        vec4 in_normalized = in.norm();
+        float dt = in_normalized * normal;
+        float discriminant = 1 - IORs*IORs*(1-dt*dt);
+        if(discriminant > 0)
+        {
+            refracted = (in_normalized - normal*dt)*IORs - normal*sqrt(discriminant);
+            return true;
+        }
+        return false;
+        
+    }
+
+    float schlick(float cosine, float IOR)
+    {
+        float r0 = (1-IOR)/(1+IOR);
+        r0 = r0 * r0;
+        return r0 + (1-r0)*pow((1 -cosine),5);
     }
 };
 
 class Diffuse : public Material
 {
 public:
-    bool Scatter(const Ray& ray_in, const Hitdata& hit , vec4& somethings, Ray& scattered) override
+    Diffuse(float r, float g, float b){albedo = vec4(r,g,b,1);};
+    bool Scatter(const Ray& ray_in, const Hitdata& hit , vec4& attenuation, Ray& scattered) override
     {
         vec4 target = hit.point + hit.normal + randPointInSphere();
         scattered = Ray(hit.point, target-hit.point);
-        somethings = albedo;
+        attenuation = albedo;
         return true;
     }
 
@@ -58,15 +81,70 @@ public:
 class Metal : public Material
 {
 public:
-    bool Scatter(const Ray& ray_in, const Hitdata& hit , vec4& somethings, Ray& scattered) override
+    Metal(float r, float g, float b, float roughness){albedo = vec4(r,g,b,1); this->roughness = roughness;};
+    bool Scatter(const Ray& ray_in, const Hitdata& hit , vec4& attenuation, Ray& scattered) override
     {
-        vec4 reflect = reflect(ray_in.Direction.norm(), &hit.normal);
-        scattered = Ray(hit.point, target-hit.point);
-        somethings = albedo;
-        return true;
+        vec4 reflect = Reflect(ray_in.Direction.norm(), hit.normal.norm());
+        scattered = Ray(hit.point, reflect + randPointInSphere() * roughness);
+        attenuation = albedo;
+        return (scattered.Direction * hit.normal.norm()) > 0;
     }
 
     vec4 albedo;
+    float roughness;
+};
+
+class Dielectric : public Material
+{
+public:
+    Dielectric(float IOR){this->IOR = IOR;};
+    bool Scatter(const Ray& ray_in, const Hitdata& hit , vec4& attenuation, Ray& scattered) override
+    {
+
+        vec4 normal = hit.normal;
+        vec4 reflected = Reflect(ray_in.Direction.norm(), hit.normal);
+        vec4 refracted;
+
+        float IORresult;
+        float cosine;
+        float reflectionChance;
+
+        attenuation = vec4(1,1,1,0);
+
+        if(ray_in.Direction * normal > 0)
+        {
+            normal *= -1;
+            IORresult = IOR;
+            cosine = IOR * (ray_in.Direction * hit.normal) / ray_in.Direction.abs();
+        }
+        else
+        {
+            IORresult = 1/IOR;
+            cosine = -(ray_in.Direction * hit.normal) / ray_in.Direction.abs();
+        }
+
+        if(refract(ray_in.Direction, normal, IORresult, refracted))
+        {
+            reflectionChance = schlick(cosine, IOR);
+        }
+        else
+        {
+            reflectionChance = 1;
+            scattered = Ray(hit.point, reflected);
+        }
+
+        if(drand48() < reflectionChance)
+        {
+            scattered = Ray(hit.point, reflected);
+        }
+        else
+        {
+            scattered = Ray(hit.point, refracted);
+        }
+        return true;
+    }
+
+    float IOR;
 };
 
 class HitableList : public Hitable
@@ -97,8 +175,8 @@ private:
 class Sphere : public Hitable
 {
 public:
-    Sphere(vec4 pos, float radius){this->pos = pos; this->radius = radius;};
-    Sphere(float x, float y, float z, float radius){this->pos = vec4(x,y,z); this->radius = radius;};
+    Sphere(vec4 pos, float radius, Material & material){this->pos = pos; this->radius = radius;};
+    Sphere(float x, float y, float z, float radius, Material* material ){this->pos = vec4(x,y,z); this->radius = radius; this->material = material;};
     bool Hit(Ray& ray, float t_min, float t_max, Hitdata& hit) override
     {
         vec4 oc = ray.Origin - pos;
@@ -115,6 +193,7 @@ public:
                 hit.t = t;
                 hit.point = ray.GetPoint(t);
                 hit.normal = (hit.point - pos) / radius;
+                hit.material = material;
                 return true;
             }
 
@@ -125,6 +204,7 @@ public:
                 hit.t = t;
                 hit.point = ray.GetPoint(t);
                 hit.normal = (hit.point - pos) / radius;
+                hit.material = material;
                 return true;
             }
 
@@ -132,6 +212,9 @@ public:
         return false;
         
     }
+
+    Material* material;
+
 private:
     vec4 pos;
     float radius;

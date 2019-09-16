@@ -33,6 +33,7 @@ public:
 	vec4 operator/(float s);
 	void operator/=(float s);
 
+	vec4 transMultiply(const vec4& rhs) const;
 	//Kryssprodukt
 	vec4 operator%(const vec4& rhs);
 
@@ -40,10 +41,10 @@ public:
 	void operator=(const vec4& rhs);
 
 	//Normalvektor
-	vec4 norm();
+	const vec4 norm() const;
 
 	//Vektorl�ngd
-	float abs();
+	const float abs() const;
 
 	//Get
 	float& operator[](const int i);

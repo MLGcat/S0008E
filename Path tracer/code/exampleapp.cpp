@@ -117,81 +117,9 @@ ExampleApp::Run()
 	UIShader.compile();
 	UIShader.use();
 
-	//SHADER
-	shaderResource shader;
-	shader.loadV("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/Shaders/VertexShader.txt");
-	shader.loadF("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/Shaders/LitFragmentShader.txt");
-	shader.compile();
-	shader.use();
-
-	//MESH
-	meshResource mesh;
-	mesh.load("/home/ludfra-7/git/gitlab/lab-env/Models/highSphere.obj");
-
-	//LIGHTS
-	light* lightArray[2];
-	light l(-5, 0, 0, 1, 1, 1, 0.1);	
-	lightArray[0] = &l;
-	light l2(5, 0, 0, 1, 1, 1, 0.1);
-	lightArray[1] = &l2;
-
-	mainScene.addLight(l);
-	mainScene.addLight(l2);
-
 	//TEXTURE
 	textureResource texture;
 	texture.loadTexture("/home/ludfra-7/git/gitlab/lab-env/Models/hmm.bmp");
-
-	
-
-	//GRAPHIC NODES
-	graphicsNode graphic;
-	graphic.setMesh(mesh);
-	graphic.setShader(shader);
-	graphic.setTexture(texture);
-
-	graphic.rotation(0, 0, 0);
-	graphic.scale(2,2,2);
-	graphic.transform(0, 0, 0);
-	graphic.specColor(1, 1, 1, 64, 64);
-
-	mainScene.addObject(graphic);
-
-	graphicsNode graphic2;
-	graphic2.setMesh(mesh);
-	graphic2.setShader(shader);
-	graphic2.setTexture(texture);
-	graphic2.specColor(1, 1, 1, 32, 64);
-
-	graphic2.rotation(0, 0, 0);
-	graphic2.scale(3, 3, 3);
-	graphic2.transform(-10, 0, 0);
-
-	mainScene.addObject(graphic2);
-
-	graphicsNode graphic3;
-	graphic3.setMesh(mesh);
-	graphic3.setShader(shader);
-	graphic3.setTexture(texture);
-	graphic3.specColor(1, 1, 1, 32, 64);
-
-	graphic3.rotation(90, 0, 0);
-	graphic3.scale(3, 3, 3);
-	graphic3.transform(10, 0, 0);
-
-	mainScene.addObject(graphic3);
-
-	graphicsNode graphic4;
-	graphic4.setMesh(mesh);
-	graphic4.setShader(shader);
-	graphic4.setTexture(texture);
-	graphic4.specColor(1, 0, 0, 16, 64);
-
-	graphic4.rotation(0, 0, 0);
-	graphic4.scale(3, 3, 3);
-	graphic4.transform(0, 0, 10);
-
-	mainScene.addObject(graphic4);
 
 	//CAMERA
 	camera cam(1, 100, 50, 1);
@@ -213,15 +141,16 @@ ExampleApp::Run()
 	float sensitivity = 0.01;
 	bool first = true;
 
-	float i = 0;
 
 	//PATH TRACER
 	meshResource plane;
 	plane.load("/home/ludfra-7/git/gitlab/lab-env/Models/plane.obj");
 
-	PathTracer pathTracer(1000,1000);
+	PathTracer pathTracer(500,500);
 	textureResource renderOutput;
-	renderOutput.img = pathTracer.Render(10, renderOutput.width, renderOutput.height);
+	renderOutput.width = 500;
+	renderOutput.height = 500;
+	renderOutput.img = pathTracer.Render(100, renderOutput.width, renderOutput.height);
 	graphicsNode renderResult;
 	renderResult.setMesh(plane);
 	renderResult.setShader(UIShader);
@@ -230,14 +159,14 @@ ExampleApp::Run()
 
 	renderResult.rotation(0, 0, 0);
 	renderResult.scale(3, 3, 3);
-	renderResult.transform(0, 0, 10);
+	renderResult.transform(0, 30, 10);
 
 	mainScene.addObject(renderResult);
 	
 
 	while (this->window->IsOpen())
 	{
-		i += 0.01;
+		/*
 		if(wasd[0] != 0)
 		{
 			activeCamera->move(0, 0, -cameraSpeed);
@@ -257,6 +186,9 @@ ExampleApp::Run()
 		{
 			activeCamera->move(cameraSpeed, 0, 0);
 		}
+		*/
+		
+
 		mainScene.draw(*activeCamera);
 		this->window->Update();
 		this->window->SwapBuffers();

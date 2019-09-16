@@ -120,10 +120,6 @@ intrin.h
 arm_neon.h
 -
 
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/Math4D.cpp
-Math4D.h
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/Math4D.h
-
 /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/Math4D.h
 iostream
 -

@@ -87,6 +87,15 @@ float vec4::operator*(const vec4& rhs) const{
 		vec[3] * rhs.vec[3]);
 };
 
+vec4 vec4::transMultiply(const vec4& rhs) const
+{
+	return vec4(
+		vec[0]*rhs[0], 
+		vec[1]*rhs[1],
+		vec[2]*rhs[2],
+		vec[3]*rhs[3]);
+};
+
 ///Kryssprodukt
 vec4 vec4::operator%(const vec4& rhs) {
 	vec4 ret(
@@ -141,7 +150,7 @@ void vec4::operator=(const vec4& rhs) {
 };
 
 ///Returnerar vektorns absolutbelopp
-float vec4::abs() {
+const float vec4::abs() const{
 	return(sqrt(
 		pow(vec[0], 2) +
 		pow(vec[1], 2) +
@@ -176,9 +185,9 @@ void vec4::set(float x, float y, float z, float a) {
 }
 
 ///Returnerar vektorn i normalform
-vec4 vec4::norm() {
+const vec4 vec4::norm() const{
 	float a = 1 / this->abs();
-	return vec4(vec[0] * a, vec[1] * a, vec[2] * a);
+	return vec4(vec[0] * a, vec[1] * a, vec[2] * a, 0);
 };
 
 void vec4::print() {
