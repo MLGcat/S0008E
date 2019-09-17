@@ -150,7 +150,7 @@ ExampleApp::Run()
 	textureResource renderOutput;
 	renderOutput.width = 500;
 	renderOutput.height = 500;
-	renderOutput.img = pathTracer.Render(100, renderOutput.width, renderOutput.height);
+	renderOutput.img = pathTracer.Render(5, renderOutput.width, renderOutput.height);
 	graphicsNode renderResult;
 	renderResult.setMesh(plane);
 	renderResult.setShader(UIShader);

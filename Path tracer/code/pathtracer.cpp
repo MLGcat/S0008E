@@ -3,14 +3,14 @@ PathTracer::PathTracer(int width, int height)
 {
     this->width = width;
     this->height = height;
-    this->camera = new Camera();
+    this->camera = new Camera(90,1, vec4(0,0,0), vec4(0,0,-1));
 }
 
 vec4 GetColor(Ray ray, Hitable* object, int recursionDepth)
 {
     recursionDepth--;
     Hitdata hit;
-    if(recursionDepth > 0 && object->Hit(ray, 0, 100, hit))
+    if(recursionDepth > 0 && object->Hit(ray, 0, MAXFLOAT, hit))
     {
         Ray scattered;
         vec4 attenuation;
@@ -52,7 +52,7 @@ unsigned char * PathTracer::Render(unsigned int samples,int & widthOut, int & he
             {
                 float u = (x + drand48()) / (float)width;
                 float v = (y + drand48()) / (float)height;
-                pixelColor += GetColor(camera->GetRay(u,v), &hitList, 50);
+                pixelColor += GetColor(camera->GetRay(u,v), &hitList, 5);
             }
             pixelColor /= samples;
             pixelColor = vec4(sqrt(pixelColor[0]), sqrt(pixelColor[1]),sqrt(pixelColor[2]));

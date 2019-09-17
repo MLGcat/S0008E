@@ -172,6 +172,7 @@ private:
     std::vector<Hitable*> objects;
 };
 
+
 class Sphere : public Hitable
 {
 public:
@@ -230,6 +231,22 @@ public :
         horizontal = vec4(2,0,0);
         vertical = vec4(0,2,0);
     }
+
+    Camera(float fov, float aspect, vec4 position, vec4 focus)
+    {
+        float halfWidth = tan(fov*M_PI/360);
+        float halfHeight = aspect * halfWidth;
+
+        vec4 forward = (focus - position).norm();
+        vec4 right = forward%vec4(0,1,0).norm();
+        vec4 camUp = right%forward;
+
+        origin = position;
+        bottomLeft = origin - right * halfWidth - camUp * halfHeight - forward;
+        horizontal = vec4(2*halfWidth, 0,0);
+        vertical = vec4(0,2*halfHeight,0);
+    }
+    
 
     Ray GetRay(float u, float v)
     {
