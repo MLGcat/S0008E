@@ -168,6 +168,7 @@ public:
         hits = closestHit;
         return hasHit;
     }
+
 private:
     std::vector<Hitable*> objects;
 };
@@ -232,32 +233,43 @@ public :
         vertical = vec4(0,2,0);
     }
 
-    Camera(float fov, float aspect, vec4 position, vec4 focus)
+    Camera(float fov, float aspect, float aperture, float focusDist, vec4 position, vec4 lookatPoint)
     {
+        lensRadius = aperture / 2;
+
         float halfWidth = tan(fov*M_PI/360);
         float halfHeight = aspect * halfWidth;
 
-        vec4 forward = (focus - position).norm();
-        vec4 right = forward%vec4(0,1,0).norm();
-        vec4 camUp = right%forward;
+        forward = (lookatPoint - position).norm();
+        right = forward%vec4(0,1,0,0).norm();
+        camUp = right%forward;
 
         origin = position;
-        bottomLeft = origin - right * halfWidth - camUp * halfHeight - forward;
-        horizontal = vec4(2*halfWidth, 0,0);
-        vertical = vec4(0,2*halfHeight,0);
+        bottomLeft = origin - right * halfWidth * focusDist - camUp * halfHeight * focusDist + forward * focusDist;
+        horizontal = vec4(2*halfWidth*focusDist, 0,0,0);
+        vertical = vec4(0,2*halfHeight*focusDist,0,0);
     }
     
 
     Ray GetRay(float u, float v)
     {
-        vec4 direction(bottomLeft + (horizontal * u) + (vertical * v));
-        direction[3] = 0;
-        return Ray(origin, direction);
+        vec4 random = randomInDisc() * lensRadius;
+        vec4 sharpnessOffset = right * random[0] + camUp * random[1];
+        vec4 direction = bottomLeft + horizontal * u + vertical * v + origin - sharpnessOffset;
+        return Ray(origin + sharpnessOffset, direction);
     }
     vec4 origin;
     vec4 bottomLeft;
     vec4 horizontal;
     vec4 vertical;
+    vec4 forward, right, camUp;
+
+    float lensRadius;
+    private:
+        vec4 randomInDisc()
+        {
+            return vec4(2*drand48()-1, 2*drand48()-1,0,0).norm();
+        }
 };
 
 class PathTracer

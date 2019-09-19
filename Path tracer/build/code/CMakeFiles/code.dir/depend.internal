@@ -83,6 +83,7 @@ code/CMakeFiles/code.dir/scene.cpp.o
  /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/graphicsNode.h
  /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/lightNode.h
  /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/mesh.h
+ /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/pathtracer.h
  /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/scene.cpp
  /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/scene.h
  /home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/code/shaderResource.h

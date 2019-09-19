@@ -1,4 +1,5 @@
 #include "scene.h"
+#include "pathtracer.h"
 scene::scene()
 {
 

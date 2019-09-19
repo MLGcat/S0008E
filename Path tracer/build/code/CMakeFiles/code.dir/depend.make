@@ -82,6 +82,7 @@ code/CMakeFiles/code.dir/scene.cpp.o: ../code/camera.h
 code/CMakeFiles/code.dir/scene.cpp.o: ../code/graphicsNode.h
 code/CMakeFiles/code.dir/scene.cpp.o: ../code/lightNode.h
 code/CMakeFiles/code.dir/scene.cpp.o: ../code/mesh.h
+code/CMakeFiles/code.dir/scene.cpp.o: ../code/pathtracer.h
 code/CMakeFiles/code.dir/scene.cpp.o: ../code/scene.cpp
 code/CMakeFiles/code.dir/scene.cpp.o: ../code/scene.h
 code/CMakeFiles/code.dir/scene.cpp.o: ../code/shaderResource.h
