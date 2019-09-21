@@ -21,7 +21,6 @@ void scene::addLight(light newLight)
 void scene::draw(camera & cam)
 {
     glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-    float dist = 10;
     
     for(int i = 0; i < objects.size(); i++)
     {

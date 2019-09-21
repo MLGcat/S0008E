@@ -26,7 +26,6 @@ void textureResource::loadTexture(char* path) {
 	//TEXTUR
 	int chan;
 	img = stbi_load(path, &width, &height, &chan, STBI_rgb);
-	
 }
 
 void textureResource::use(GLuint & program) {

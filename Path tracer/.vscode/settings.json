@@ -70,7 +70,8 @@
         "locale": "cpp",
         "cfenv": "cpp",
         "cstdbool": "cpp",
-        "typeindex": "cpp"
+        "typeindex": "cpp",
+        "hash_map": "cpp"
     },
     "cmake.configureOnOpen": true
 }

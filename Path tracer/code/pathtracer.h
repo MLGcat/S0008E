@@ -100,7 +100,6 @@ public:
     Dielectric(float IOR){this->IOR = IOR;};
     bool Scatter(const Ray& ray_in, const Hitdata& hit , vec4& attenuation, Ray& scattered) override
     {
-
         vec4 normal = hit.normal;
         vec4 reflected = Reflect(ray_in.Direction.norm(), hit.normal);
         vec4 refracted;
@@ -113,7 +112,7 @@ public:
 
         if(ray_in.Direction * normal > 0)
         {
-            normal *= -1;
+            normal = hit.normal*-1;
             IORresult = IOR;
             cosine = IOR * (ray_in.Direction * hit.normal) / ray_in.Direction.abs();
         }
@@ -129,8 +128,8 @@ public:
         }
         else
         {
-            reflectionChance = 1;
             scattered = Ray(hit.point, reflected);
+            return true;
         }
 
         if(drand48() < reflectionChance)
@@ -177,7 +176,7 @@ private:
 class Sphere : public Hitable
 {
 public:
-    Sphere(vec4 pos, float radius, Material & material){this->pos = pos; this->radius = radius;};
+    Sphere(vec4 pos, float radius, Material* material){this->pos = pos; this->radius = radius; this->material = material;};
     Sphere(float x, float y, float z, float radius, Material* material ){this->pos = vec4(x,y,z); this->radius = radius; this->material = material;};
     bool Hit(Ray& ray, float t_min, float t_max, Hitdata& hit) override
     {
@@ -227,10 +226,10 @@ class Camera
 public :
     Camera()
     {
-        origin = vec4(0,0,0);
-        bottomLeft = vec4(-1,-1,-1);
-        horizontal = vec4(2,0,0);
-        vertical = vec4(0,2,0);
+        origin = vec4(0,0,0,0);
+        bottomLeft = vec4(-1,-1,-1,0);
+        horizontal = vec4(2,0,0,0);
+        vertical = vec4(0,2,0,0);
     }
 
     Camera(float fov, float aspect, float aperture, float focusDist, vec4 position, vec4 lookatPoint)
@@ -241,13 +240,13 @@ public :
         float halfHeight = aspect * halfWidth;
 
         forward = (lookatPoint - position).norm();
-        right = forward%vec4(0,1,0,0).norm();
+        right = (forward%vec4(0,1,0,0)).norm();
         camUp = right%forward;
 
         origin = position;
         bottomLeft = origin - right * halfWidth * focusDist - camUp * halfHeight * focusDist + forward * focusDist;
-        horizontal = vec4(2*halfWidth*focusDist, 0,0,0);
-        vertical = vec4(0,2*halfHeight*focusDist,0,0);
+        horizontal = right*2*halfWidth*focusDist;
+        vertical = camUp*2*halfHeight*focusDist;
     }
     
 
@@ -255,8 +254,8 @@ public :
     {
         vec4 random = randomInDisc() * lensRadius;
         vec4 sharpnessOffset = right * random[0] + camUp * random[1];
-        vec4 direction = bottomLeft + horizontal * u + vertical * v + origin - sharpnessOffset;
-        return Ray(origin + sharpnessOffset, direction);
+        vec4 direction = bottomLeft + horizontal * u + vertical * v - origin;
+        return Ray(origin + sharpnessOffset, direction - sharpnessOffset);
     }
     vec4 origin;
     vec4 bottomLeft;
@@ -268,7 +267,7 @@ public :
     private:
         vec4 randomInDisc()
         {
-            return vec4(2*drand48()-1, 2*drand48()-1,0,0).norm();
+            return vec4((2*drand48())-1, (2*drand48())-1,0,0).norm();
         }
 };
 
@@ -276,7 +275,8 @@ class PathTracer
 {
 public:
     PathTracer(int width,int height);
-    unsigned char * Render(unsigned int samples,int & widthOut, int & heightOut);
+    void Render(unsigned int samples,int & widthOut, int & heightOut);
+    unsigned char* image;
 private:
     Camera* camera;
     int width;

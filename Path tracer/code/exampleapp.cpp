@@ -2,9 +2,14 @@
 // exampleapp.cc
 // (C) 2015-2018 Individual contributors, see AUTHORS file
 //------------------------------------------------------------------------------
+
+#define WIDTH 1920
+#define HEIGHT 1080
+
 #include "config.h"
 #include "exampleapp.h"
 #include <cstring>
+#include <thread>
 
 #include "scene.h"
 #include "pathtracer.h"
@@ -17,12 +22,20 @@ bool first = true;
 bool mouseDown = false;
 float64 lastPosition[2] = {0,0};
 float cameraHorizontal, cameraVertical;
+PathTracer* pathTracer;
+bool space;
 
 struct POINT
 {
 	float x;
 	float y;
 };
+
+void StartRender()
+{
+	int w,h;
+	pathTracer->Render(1000000000000000000000, w, h);
+}
 
 
 
@@ -40,6 +53,7 @@ ExampleApp::Open()
 {
 	App::Open();
 	this->window = new Display::Window;
+	this->window->SetSize(WIDTH, HEIGHT);
 	window->SetKeyPressFunction([this](int32 symbol, int32 keycode, int32 state, int32 something)
 	{
 		switch(symbol)
@@ -61,6 +75,7 @@ ExampleApp::Open()
 			break;
 
 			case GLFW_KEY_SPACE:
+			space = true;
 			break;
 
 			case GLFW_KEY_LEFT_SHIFT:
@@ -117,10 +132,6 @@ ExampleApp::Run()
 	UIShader.compile();
 	UIShader.use();
 
-	//TEXTURE
-	textureResource texture;
-	texture.loadTexture("/home/ludfra-7/git/gitlab/lab-env/Models/hmm.bmp");
-
 	//CAMERA
 	camera cam(1, 100, 50, 1);
 	cam.setPos(0, 0, 20);
@@ -146,11 +157,11 @@ ExampleApp::Run()
 	meshResource plane;
 	plane.load("/home/ludfra-7/git/gitlab/lab-env/Models/plane.obj");
 
-	PathTracer pathTracer(500,500);
+	pathTracer = new PathTracer(WIDTH,HEIGHT);
 	textureResource renderOutput;
-	renderOutput.width = 500;
-	renderOutput.height = 500;
-	renderOutput.img = pathTracer.Render(100, renderOutput.width, renderOutput.height);
+	renderOutput.width = WIDTH;
+	renderOutput.height = HEIGHT;
+	renderOutput.img = pathTracer->image;
 	graphicsNode renderResult;
 	renderResult.setMesh(plane);
 	renderResult.setShader(UIShader);
@@ -162,33 +173,22 @@ ExampleApp::Run()
 	renderResult.transform(0, 30, 10);
 
 	mainScene.addObject(renderResult);
-	
-
+	std::thread renderThread(StartRender);
+	renderThread.detach();
+	int i = 0;
 	while (this->window->IsOpen())
 	{
-		/*
-		if(wasd[0] != 0)
+		if(space)
 		{
-			activeCamera->move(0, 0, -cameraSpeed);
+			space = !space;
+			FILE * output;
+			output = fopen("/home/ludfra-7/Pictures/REEEE.jpg", "wb");
+			if(output!= NULL)
+			{
+				fwrite(pathTracer->image,sizeof(unsigned char*),WIDTH*HEIGHT*3, output);
+				fclose(output);
+			}
 		}
-
-		if(wasd[1] != 0)
-		{
-			activeCamera->move(-cameraSpeed, 0, 0);
-		}
-
-		if(wasd[2] != 0)
-		{
-			activeCamera->move(0, 0, cameraSpeed);
-		}
-
-		if(wasd[3] != 0)
-		{
-			activeCamera->move(cameraSpeed, 0, 0);
-		}
-		*/
-		
-
 		mainScene.draw(*activeCamera);
 		this->window->Update();
 		this->window->SwapBuffers();

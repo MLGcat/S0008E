@@ -67,8 +67,7 @@ vec4 vec4::operator+(const vec4& rhs) const {
 	return vec4(
 		vec[0] + rhs.vec[0],
 		vec[1] + rhs.vec[1],
-		vec[2] + rhs.vec[2],
-		vec[3] + rhs.vec[3]);
+		vec[2] + rhs.vec[2]);
 };
 
 ///Subtraktion med vektor
@@ -83,8 +82,7 @@ vec4 vec4::operator-(const vec4& rhs) const {
 float vec4::operator*(const vec4& rhs) const{
 	return(vec[0] * rhs.vec[0] +
 		vec[1] * rhs.vec[1] +
-		vec[2] * rhs.vec[2] +
-		vec[3] * rhs.vec[3]);
+		vec[2] * rhs.vec[2]);
 };
 
 vec4 vec4::transMultiply(const vec4& rhs) const
@@ -92,8 +90,7 @@ vec4 vec4::transMultiply(const vec4& rhs) const
 	return vec4(
 		vec[0]*rhs[0], 
 		vec[1]*rhs[1],
-		vec[2]*rhs[2],
-		vec[3]*rhs[3]);
+		vec[2]*rhs[2]);
 };
 
 ///Kryssprodukt
@@ -112,8 +109,7 @@ vec4 vec4::operator*(float s) const{
 	return(vec4(
 		vec[0] * s,
 		vec[1] * s,
-		vec[2] * s,
-		vec[3] * s));
+		vec[2] * s));
 };
 
 ///Multiplikation med skal�r
@@ -121,7 +117,6 @@ void vec4::operator*=(float s) {
 	vec[0] *= s;
 	vec[1] *= s;
 	vec[2] *= s;
-	vec[3] *= s;
 };
 
 ///Division med skal�r
@@ -129,8 +124,7 @@ vec4 vec4::operator/(float s) {
 	return(vec4(
 		vec[0] / s,
 		vec[1] / s,
-		vec[2] / s,
-		vec[3] / s));
+		vec[2] / s));
 };
 
 ///Division med skal�r
@@ -138,7 +132,6 @@ void vec4::operator/=(float s) {
 	vec[0] /= s;
 	vec[1] /= s;
 	vec[2] /= s;
-	vec[3] /= s;
 };
 
 ///Kopierar v�rden fr�n vektor
@@ -146,7 +139,6 @@ void vec4::operator=(const vec4& rhs) {
 	vec[0] = rhs.vec[0];
 	vec[1] = rhs.vec[1];
 	vec[2] = rhs.vec[2];
-	vec[3] = rhs.vec[3];
 };
 
 ///Returnerar vektorns absolutbelopp
@@ -181,13 +173,12 @@ void vec4::set(float x, float y, float z, float a) {
 	vec[0] = x;
 	vec[1] = y;
 	vec[2] = z;
-	vec[3] = a;
 }
 
 ///Returnerar vektorn i normalform
 const vec4 vec4::norm() const{
 	float a = 1 / this->abs();
-	return vec4(vec[0] * a, vec[1] * a, vec[2] * a, 0);
+	return vec4(vec[0] * a, vec[1] * a, vec[2] * a, 1);
 };
 
 void vec4::print() {

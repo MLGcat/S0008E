@@ -3,24 +3,25 @@ PathTracer::PathTracer(int width, int height)
 {
     this->width = width;
     this->height = height;
-    this->camera = new Camera(90,1,1,1, vec4(0,0,0), vec4(0,0,-1));
+    this->camera = new Camera(36,((float)height)/width,.1,10, vec4(13,2,3), vec4(0,0,0));
+    this->image = new unsigned char[width * height * 3];
 }
 
 vec4 GetColor(Ray ray, Hitable* object, int recursionDepth)
 {
     recursionDepth--;
     Hitdata hit;
-    if(recursionDepth > 0 && object->Hit(ray, 0, MAXFLOAT, hit))
+    if(object->Hit(ray, 0.001, MAXFLOAT, hit))
     {
         Ray scattered;
         vec4 attenuation;
-        if (hit.material->Scatter(ray, hit, attenuation, scattered))
+        if (recursionDepth > 0 && hit.material->Scatter(ray, hit, attenuation, scattered))
         {
             return attenuation.transMultiply(GetColor(scattered, object, recursionDepth));
         }
         else
         {
-            return vec4();
+            return vec4(0,0,0,0);
         }
     }
     float t = 0.5 * (ray.Direction.norm()[1] + 1);
@@ -28,54 +29,66 @@ vec4 GetColor(Ray ray, Hitable* object, int recursionDepth)
     
 };
 
-unsigned char * PathTracer::Render(unsigned int samples,int & widthOut, int & heightOut)
+HitableList *randomScene()
 {
-
-    HitableList hitList;
-    unsigned char * ret = new unsigned char[width * height * 3];
-
-	Sphere sphere(1,0,-2,0.5, new Metal(.8, .6, .2, 0));
-	Sphere sphere2(-1,0,-2,0.5, new Dielectric(1.5));
-	Sphere sphere3(0,0,-2,0.5, new Diffuse(.1, .2, .5));
-
-    Material* materials[3];
-    materials[0] = new Metal(.8, .6, .2, 0);
-    materials[1] = new Dielectric(1.5);
-    materials[2] = new Diffuse(.1, .2, .5);
-
-    for(int i = 0; i < 10; i++)
+    int n = 10;
+    HitableList* ret = new HitableList();
+    ret->Register(new Sphere(0,-1000,0, 1000, new Diffuse(0.5,0.5,0.5)));
+    int i = 1;
+    for(int a = -11; a < 11; a++)
     {
-        float x = drand48()*2-1;
-        float radius = 0.1+drand48()*0.3;
-        float z = -1-drand48()*4;
-        hitList.Register(new Sphere(x, 0.5-radius, z, radius, materials[(int)(drand48()*3)]));
-    }
-
-	Sphere groundSphere(0,100.5,-2,100, new Diffuse(.8,.8,0));
-    hitList.Register(&sphere);
-    hitList.Register(&sphere2);
-    hitList.Register(&sphere3);
-    hitList.Register(&groundSphere);
-    
-    for(int y = 0; y < height; y++)
-    {
-        for(int x = 0; x < width; x++)
+        for(int b = -11; b < 11; b++)
         {
-            vec4 pixelColor(0,0,0,0);
-            for(int s = 0; s < samples; s++)
+            float mat = drand48();
+            vec4 center(a+0.9*drand48(),0.2,b+0.9*drand48());
+            if((center-vec4(4,0.2,0)).abs() > 0.9)
             {
+                if(mat < 0.8)
+                {
+                    ret->Register(new Sphere(center, 0.2, new Diffuse(drand48()*drand48(), drand48()*drand48(),drand48()*drand48())));
+                }
+                else if(mat < 0.95)
+                {
+                    ret->Register(new Sphere(center, 0.2, new Metal(0.5*(1+drand48()), 0.5*(1+drand48()),0.5*(1+drand48()), drand48())));
+                }
+                else
+                {
+                    ret->Register(new Sphere(center, 0.2, new Dielectric(1.5)));
+                }
+                
+            }
+        }
+    }
+    ret->Register(new Sphere(vec4(0,1,0),1, new Dielectric(1.5)));
+    ret->Register(new Sphere(vec4(-4,1,0),1, new Diffuse(0.4,0.2,0.1)));
+    ret->Register(new Sphere(vec4(4,1,0),1, new Metal(0.7,0.6,0.5,0)));
+    return ret;
+}
+
+void PathTracer::Render(unsigned int samples,int & widthOut, int & heightOut)
+{
+    srand48(time(0));
+    HitableList* world = randomScene();
+
+    for(int s = 1; s <= samples; s++)
+    {
+        std::cout << "SAMPLE: " << s << std::endl;
+        for(int y = 0; y < height; y++)
+        {
+            for(int x = 0; x < width; x++)
+            {
+                vec4 pixelColor(0,0,0,0);
                 float u = (x + drand48()) / (float)width;
                 float v = (y + drand48()) / (float)height;
-                pixelColor += GetColor(camera->GetRay(u,v), &hitList, 5);
+                pixelColor += GetColor(camera->GetRay(u,v), world, 50);
+                
+                pixelColor = vec4(sqrt(pixelColor[0]), sqrt(pixelColor[1]),sqrt(pixelColor[2]));
+                image[(y * width + x) * 3] = (image[(y * width + x) * 3]*(s-1) + pixelColor[0]*255) / s;
+                image[(y * width + x) * 3+1] = (image[(y * width + x) * 3+1]*(s-1) + pixelColor[1]*255) / s;
+                image[(y * width + x) * 3+2] = (image[(y * width + x) * 3+2]*(s-1) + pixelColor[2]*255) / s;
             }
-            pixelColor /= samples;
-            pixelColor = vec4(sqrt(pixelColor[0]), sqrt(pixelColor[1]),sqrt(pixelColor[2]));
-            ret[(y * width + x) * 3] = pixelColor[0]*255;
-            ret[(y * width + x) * 3 + 1] = pixelColor[1]*255;
-            ret[(y * width + x) * 3 + 2] = pixelColor[2]*255;
         }
     }
     widthOut = this->width;
     heightOut = this->height;
-    return ret;
 }
