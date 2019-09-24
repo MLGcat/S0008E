@@ -8,7 +8,6 @@ void Skeleton::Load(string path)
     {
         joints.clear();
         TiXmlElement* firstBone = src.FirstChildElement("Nebula3")->FirstChildElement("Model")->FirstChildElement("CharacterNodes")->FirstChildElement("CharacterNode")->FirstChildElement("Joint");
-        std::cout << firstBone->Attribute("name") << std::endl;
         TiXmlElement* joint = firstBone;
         int i = -1;
         do
@@ -20,7 +19,6 @@ void Skeleton::Load(string path)
             {
                 if(parent < joints.size())
                 {
-                    std::cout << "Parent " << parent << " child " << joints.size() << std::endl;
                     joints[parent]->Children.push_back(joints[joints.size()-1]);
                 }
                 else

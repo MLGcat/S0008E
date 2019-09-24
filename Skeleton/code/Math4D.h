@@ -78,7 +78,7 @@ public:
 	static mat4 rotZ(float v);
 	static mat4 rot(float v, vec4 axis);
 	static mat4 rot3(float x, float y, float z);
-	static mat4 quaternion(vec4 quaternion);
+	static mat4 quaternion(const vec4 &quaternion);
 	
 	//Rotation med grader
 	static mat4 rotdX(float v);

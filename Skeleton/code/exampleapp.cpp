@@ -118,7 +118,6 @@ ExampleApp::Open()
 	window->SetMouseScrollFunction([this](int32 a, int32 b)
 	{
 		mouseWheel = b;
-		std::cout << mouseWheel << std::endl;
 	});
 
 	if (this->window->Open())

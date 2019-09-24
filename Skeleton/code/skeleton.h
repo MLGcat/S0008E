@@ -35,9 +35,8 @@ public:
         ret->setShader(*skeleton->boneShader);
         ret->setTexture(*skeleton->boneTexture);
         ret->ID = std::atoi(element.Attribute("index"));
-        ret->pos = arrToVec((char*)element.Attribute("position")) * 3;
+        ret->pos = arrToVec((char*)element.Attribute("position"))*3;
         ret->rot = arrToVec((char*)element.Attribute("rotation"));
-        ret->rot.print();
         ret->scale = arrToVec((char*)element.Attribute("scale"));
         ret->RefreshTransform(mat4());
         return ret;

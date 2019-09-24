@@ -295,21 +295,21 @@ mat4 mat4::rot(float v, vec4 axis) {
 mat4 mat4::rot3(float x, float y, float z) {
 	return rotX(x)*rotY(y)*rotZ(z);
 }
-mat4 mat4::quaternion(vec4 quaternion) {
+mat4 mat4::quaternion(const vec4 & quaternion) {
 	float x = quaternion[0];
 	float y = quaternion[1];
 	float z = quaternion[2];
 	float w = quaternion[3];
-	float n = 1.0/sqrt(x*x+y*y+z*z+w*w);
+	float n = 1/sqrt(x*x+y*y+z*z+w*w);
 	x *= n;
 	y *= n;
 	z *= n;
 	w *= n;
 	return mat4(
-    1 - 2*y*y - 2*z*z, 2*x*y - 2*z*w, 2*x*z + 2*y*w, 0,
-    2*x*y + 2*z*w, 1 - 2*x*x - 2*z*z, 2*y*z - 2*x*w, 0,
-    2*x*z - 2*y*w, 2*y*z + 2*x*w, 1 - 2*x*x - 2*y*y, 0,
-    0, 0, 0, 1);
+    1 - 2*(y*y + z*z), 	2*(x*y - z*w), 		2*(x*z + y*w), 		0,
+    2*(x*y + z*w), 		1 - 2*(x*x + z*z), 	2*(y*z - x*w), 		0,
+    2*(x*z - y*w), 		2*(y*z + x*w), 		1 - 2*(x*x + y*y), 	0,
+    0, 					0, 					0, 					1);
 }
 
 mat4 mat4::rotdX(float v) {
