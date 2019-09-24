@@ -139,6 +139,7 @@ void vec4::operator=(const vec4& rhs) {
 	vec[0] = rhs.vec[0];
 	vec[1] = rhs.vec[1];
 	vec[2] = rhs.vec[2];
+	vec[3] = rhs.vec[3];
 };
 
 ///Returnerar vektorns absolutbelopp
@@ -295,20 +296,20 @@ mat4 mat4::rot3(float x, float y, float z) {
 	return rotX(x)*rotY(y)*rotZ(z);
 }
 mat4 mat4::quaternion(vec4 quaternion) {
-	float qx = quaternion[0];
-	float qy = quaternion[1];
-	float qz = quaternion[2];
-	float qw = quaternion[3];
-	float n = 1.0/sqrt(qx*qx+qy*qy+qz*qz+qw*qw);
-	qx *= n;
-	qy *= n;
-	qz *= n;
-	qw *= n;
+	float x = quaternion[0];
+	float y = quaternion[1];
+	float z = quaternion[2];
+	float w = quaternion[3];
+	float n = 1.0/sqrt(x*x+y*y+z*z+w*w);
+	x *= n;
+	y *= n;
+	z *= n;
+	w *= n;
 	return mat4(
-    1.0f - 2.0f*qy*qy - 2.0f*qz*qz, 2.0f*qx*qy - 2.0f*qz*qw, 2.0f*qx*qz + 2.0f*qy*qw, 0.0f,
-    2.0f*qx*qy + 2.0f*qz*qw, 1.0f - 2.0f*qx*qx - 2.0f*qz*qz, 2.0f*qy*qz - 2.0f*qx*qw, 0.0f,
-    2.0f*qx*qz - 2.0f*qy*qw, 2.0f*qy*qz + 2.0f*qx*qw, 1.0f - 2.0f*qx*qx - 2.0f*qy*qy, 0.0f,
-    0.0f, 0.0f, 0.0f, 1.0f);
+    1 - 2*y*y - 2*z*z, 2*x*y - 2*z*w, 2*x*z + 2*y*w, 0,
+    2*x*y + 2*z*w, 1 - 2*x*x - 2*z*z, 2*y*z - 2*x*w, 0,
+    2*x*z - 2*y*w, 2*y*z + 2*x*w, 1 - 2*x*x - 2*y*y, 0,
+    0, 0, 0, 1);
 }
 
 mat4 mat4::rotdX(float v) {

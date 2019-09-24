@@ -34,6 +34,7 @@ public:
 	vec4 test;
 	vec4 forward();
 	vec4 right();
+	vec4 up();
 
 	float ambientLight[3]{ 0,0,0 };
 

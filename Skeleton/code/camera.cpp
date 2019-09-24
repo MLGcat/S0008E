@@ -46,6 +46,11 @@ vec4 camera::right()
 	return (vec4(0,1,0,1)%this->forward());
 }
 
+vec4 camera::up()
+{
+	return (this->right()%this->forward());	
+}
+
 void camera::lookAt(float x, float y, float z) {
 	vec4 target(x, y, z, 0);
 	lookAt(target);

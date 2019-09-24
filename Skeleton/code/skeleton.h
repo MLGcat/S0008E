@@ -37,6 +37,7 @@ public:
         ret->ID = std::atoi(element.Attribute("index"));
         ret->pos = arrToVec((char*)element.Attribute("position")) * 3;
         ret->rot = arrToVec((char*)element.Attribute("rotation"));
+        ret->rot.print();
         ret->scale = arrToVec((char*)element.Attribute("scale"));
         ret->RefreshTransform(mat4());
         return ret;
@@ -47,13 +48,22 @@ public:
         model = parent * mat4::transform(pos) * mat4::quaternion(rot) * mat4::scale(scale);
         for(int i = 0; i < Children.size(); i++)
         {
-            Children[i]->RefreshTransform(model * mat4::transform(1,0,0));
+            Children[i]->RefreshTransform(model);
         }
     };
 
     void draw(camera & c, light* lights, unsigned int size) override
     {
         graphicsNode::draw(c,lights,size);
+        vec4 A = vec4(0,0,0,0);
+        for(int i = 0; i < Children.size(); i++)
+        {
+            vec4 B = Children[i]->pos;
+            glBegin(GL_LINES);
+            glVertex3f(A[0], A[1], A[2]);
+            glVertex3f(B[0], B[1], B[2]);
+            glEnd();
+        }
         for(int i = 0; i < Children.size(); i++)
         {
             Children[i]->draw(c,lights,size);

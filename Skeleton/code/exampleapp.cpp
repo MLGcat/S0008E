@@ -13,18 +13,20 @@
 #include "scene.h"
 #include "skeleton.h"
 
-byte wasd[4] = {0,0,0,0};
-float cameraSpeed = 0.1;
-float sensitivity = 0.01;
 static camera* activeCamera;
-bool first = true;
-bool mouseDown = false;
-float64 lastPosition[2] = {0,0};
+float64 lastMousePosition[2] = {0,0};
 float cameraHorizontal, cameraVertical;
-bool space;
 
+bool firstClick = true;
+bool wasd[4] = {0,0,0,0};
+bool space, shift;
 int mouseWheel;
+bool mouseDown;
+
+float rotateSpeed = 0.01;
 float scrollSpeed = 1;
+float shiftSpeed = 0.01;
+float translateSpeed = 0.1;
 
 struct POINT
 {
@@ -73,6 +75,7 @@ ExampleApp::Open()
 			break;
 
 			case GLFW_KEY_LEFT_SHIFT:
+			shift = state;
 			break;
 		}
 	});
@@ -80,17 +83,27 @@ ExampleApp::Open()
 	window->SetMouseMoveFunction([this](float64 x, float64 y)
 	{
 		if(!mouseDown) return;
-		if(first)
+		if(firstClick)
 		{
-			lastPosition[0] = x;
-			lastPosition[1] = y;
-			first = false;
+			lastMousePosition[0] = x;
+			lastMousePosition[1] = y;
+			firstClick = false;
 		}
-		cameraHorizontal += sensitivity * (lastPosition[0] - x);
-		cameraVertical += sensitivity * (lastPosition[1] - y);
-		lastPosition[0] = x;
-		lastPosition[1] = y;
-		activeCamera->rotAround(cameraHorizontal, cameraVertical);
+		if(!shift)
+		{
+			cameraHorizontal += rotateSpeed * (lastMousePosition[0] - x);
+			cameraVertical += rotateSpeed * (lastMousePosition[1] - y);
+			activeCamera->rotAround(cameraHorizontal, cameraVertical);
+		}
+		else
+		{
+			vec4 translation = activeCamera->up()*(lastMousePosition[1] - y) + activeCamera->right() * (lastMousePosition[0] - x);
+			translation *= shiftSpeed;
+			activeCamera->move(translation);
+		}
+		lastMousePosition[0] = x;
+		lastMousePosition[1] = y;
+		
 	});
 
 	window->SetMousePressFunction([this](int32 key, int32 state, int32 c)
@@ -98,7 +111,7 @@ ExampleApp::Open()
 		if(key == 0)
 		{
 			mouseDown = state == 1;
-			if(!mouseDown) first = true;
+			if(!mouseDown) firstClick = true;
 		}
 	});
 
@@ -151,12 +164,6 @@ ExampleApp::Run()
 	float camRotH = 0;
 	float camRotV = 0;
 
-	POINT lastPos;
-	lastPos.x = 0;
-	lastPos.y = 0;
-	float sensitivity = 0.01;
-	bool first = true;
-
 	Skeleton rig;
 	rig.boneMesh = &boneMesh;
 	rig.boneShader = &shader;
@@ -170,29 +177,28 @@ ExampleApp::Run()
 	{
 		if(wasd[0] != 0)
 		{
-			activeCamera->move(activeCamera->forward()*(-cameraSpeed));
+			activeCamera->move(activeCamera->forward()*(-translateSpeed));
 		}
 
 		if(wasd[1] != 0)
 		{
-			activeCamera->move(activeCamera->right()*(-cameraSpeed));
+			activeCamera->move(activeCamera->right()*(-translateSpeed));
 		}
 
 		if(wasd[2] != 0)
 		{
-			activeCamera->move(activeCamera->forward()*cameraSpeed);
+			activeCamera->move(activeCamera->forward()*translateSpeed);
 		}
 
 		if(wasd[3] != 0)
 		{
-			activeCamera->move(activeCamera->right()*cameraSpeed);
+			activeCamera->move(activeCamera->right()*translateSpeed);
 		}
 
 		if(mouseWheel == 1)
 		{
 			activeCamera->zoom(-scrollSpeed);
 			mouseWheel = 0;
-
 		}
 		else if(mouseWheel == -1)
 		{
