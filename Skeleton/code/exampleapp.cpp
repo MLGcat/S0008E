@@ -172,9 +172,10 @@ ExampleApp::Run()
 
 	mainScene.addObject((Skeleton*)&rig);
 	
-	int i = 0;
+	float i = 0;
 	while (this->window->IsOpen())
 	{
+		i+=0.1;
 		if(wasd[0] != 0)
 		{
 			activeCamera->move(activeCamera->forward()*(-translateSpeed));
