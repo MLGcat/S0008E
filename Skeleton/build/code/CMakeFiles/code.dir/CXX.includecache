@@ -130,10 +130,6 @@ iostream
 math.h
 -
 
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/camera.cpp
-camera.h
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/camera.h
-
 /home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/camera.h
 Math4D.h
 /home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/Math4D.h
@@ -158,10 +154,6 @@ core/app.h
 render/window.h
 /home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/render/window.h
 
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/graphicsNode.cpp
-graphicsNode.h
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/graphicsNode.h
-
 /home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/graphicsNode.h
 memory
 -
@@ -176,17 +168,9 @@ camera.h
 lightNode.h
 /home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/lightNode.h
 
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/lightNode.cpp
-lightNode.h
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/lightNode.h
-
 /home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/lightNode.h
 Math4D.h
 /home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/Math4D.h
-
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/mesh.cpp
-mesh.h
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/mesh.h
 
 /home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/mesh.h
 Math4D.h
@@ -203,10 +187,6 @@ vector
 -
 string.h
 -
-
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/scene.cpp
-scene.h
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/scene.h
 
 /home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/scene.h
 Math4D.h
@@ -235,10 +215,6 @@ iostream
 -
 string.h
 -
-
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/skeleton.cpp
-skeleton.h
-/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/skeleton.h
 
 /home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/code/skeleton.h
 vector
