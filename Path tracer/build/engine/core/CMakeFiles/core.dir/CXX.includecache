@@ -1,0 +1,66 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../engine/config.h
+iostream
+-
+win32/pch.h
+../engine/win32/pch.h
+stdint.h
+-
+atomic
+-
+xmmintrin.h
+-
+assert.h
+-
+
+../exts/glew/include/GL/glew.h
+stddef.h
+-
+inttypes.h
+-
+stdint.h
+-
+inttypes.h
+-
+Availability.h
+-
+OpenGL/glu.h
+-
+GL/glu.h
+-
+
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/config.cc
+config.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/config.h
+
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/config.h
+iostream
+-
+win32/pch.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/win32/pch.h
+stdint.h
+-
+atomic
+-
+xmmintrin.h
+-
+assert.h
+-
+
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/core/app.cc
+config.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/core/config.h
+app.h
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/core/app.h
+
+/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/engine/core/app.h
+GL/glew.h
+-
+

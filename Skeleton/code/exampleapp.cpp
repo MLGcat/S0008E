@@ -138,8 +138,8 @@ ExampleApp::Run()
 	scene mainScene;
 	//GUI SHADER
 	shaderResource shader;
-	shader.loadV("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/Shaders/VertexShader.txt");
-	shader.loadF("/home/ludfra-7/git/gitlab/Grafikprogrammering/Path tracer/Shaders/UnlitFragmentShader.txt");
+	shader.loadV("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/VertexShader.txt");
+	shader.loadF("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/UnlitFragmentShader.txt");
 	shader.compile();
 	shader.use();
 
