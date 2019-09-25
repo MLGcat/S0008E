@@ -136,18 +136,19 @@ void
 ExampleApp::Run()
 {
 	scene mainScene;
+	
 	//GUI SHADER
 	shaderResource shader;
-	shader.loadV("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/VertexShader.txt");
-	shader.loadF("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/UnlitFragmentShader.txt");
+	shader.loadV("./build/Shaders/VertexShader.isf");
+	shader.loadF("./build/Shaders/UnlitFragmentShader.isf");
 	shader.compile();
 	shader.use();
 
 	meshResource boneMesh;
-	boneMesh.load("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/sphere.obj");
+	boneMesh.load("./build/Models/sphere.obj");
 
 	textureResource boneTex;
-	boneTex.loadTexture("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/mesa.bmp");
+	boneTex.loadTexture("./build/Textures/mesa.bmp");
 
 	//CAMERA
 	camera cam(1, 100, 50, 1);
