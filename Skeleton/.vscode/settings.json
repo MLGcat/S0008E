@@ -71,7 +71,8 @@
         "cfenv": "cpp",
         "cstdbool": "cpp",
         "typeindex": "cpp",
-        "hash_map": "cpp"
+        "hash_map": "cpp",
+        "codecvt": "cpp"
     },
     "cmake.configureOnOpen": true
 }

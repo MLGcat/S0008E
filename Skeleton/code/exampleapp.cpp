@@ -12,6 +12,7 @@
 #include <thread>
 #include "scene.h"
 #include "skeleton.h"
+#include "Nax3Loader.h"
 
 static camera* activeCamera;
 float64 lastMousePosition[2] = {0,0};
@@ -135,6 +136,8 @@ ExampleApp::Open()
 void
 ExampleApp::Run()
 {
+	Animation animation = Animation::FromNax3("/home/ludfra-7/Downloads/footman/footman/Unit_Footman.nax3");
+
 	scene mainScene;
 	
 	//GUI SHADER
@@ -175,7 +178,7 @@ ExampleApp::Run()
 	float i = 0;
 	while (this->window->IsOpen())
 	{
-		i+=0.1;
+		i+=1;
 		if(wasd[0] != 0)
 		{
 			activeCamera->move(activeCamera->forward()*(-translateSpeed));
