@@ -1,4 +1,4 @@
-#include "Nax3Loader.h"
+#include "Animation.h"
 Animation Animation::FromNax3(const char path[])
 {
     std::ifstream stream(path, std::ifstream::binary);
@@ -26,15 +26,22 @@ Animation Animation::FromNax3(const char path[])
         vec4* keyStart = (vec4*)&buffer[length] - header->numKeys;
 
         //====CLIP====
+        unsigned int startKeyOffset = 0;
         for(unsigned int clipIndex = 0; clipIndex < header->numClips; clipIndex++)
         {
             Nax3Clip* currClip = (Nax3Clip*)ptr;
             ptr+=sizeof(Nax3Clip);
 
+            ret->Clips[clipIndex].CurveCount = currClip->numCurves;
+            ret->Clips[clipIndex].KeyCount = currClip->numKeys;
+            ret->Clips[clipIndex].KeyDuration = 1/((float)currClip->keyDuration/1000);
+            memcpy(ret->Clips[clipIndex].name, currClip->name, 50);
+
             //====EVENT====
             for(unsigned int eventIndex = 0; eventIndex < currClip->numEvents; eventIndex++)
             {
                 Nax3AnimEvent* currEvent = (Nax3AnimEvent*)ptr;
+                std::cout << eventIndex << ": " << currEvent->name << std::endl;
                 ptr+=sizeof(Nax3AnimEvent);
             }
 
@@ -46,13 +53,13 @@ Animation Animation::FromNax3(const char path[])
             {   
                 Nax3Curve* currCurve = (Nax3Curve*)ptr;
                 ret->Clips[clipIndex].Curves[curveIndex].type = currCurve->curveType;
-                ret->Clips[clipIndex].Curves[curveIndex].startIndex = currCurve->firstKeyIndex;
+                ret->Clips[clipIndex].Curves[curveIndex].startIndex = currCurve->firstKeyIndex - startKeyOffset;
+                std::cout << (int)currCurve->firstKeyIndex << std::endl;
                 ptr+=sizeof(Nax3Curve);
             }
-            
-            ret->Clips[clipIndex].Keys = new vec4[currClip->numKeys];
-            memcpy(ret->Clips[clipIndex].Keys, keyStart + currClip->startKeyIndex, currClip->numKeys);
-            
+            ret->Clips[clipIndex].Keys = new vec4[currClip->numKeys * currClip->numCurves];
+            memcpy(ret->Clips[clipIndex].Keys, keyStart + startKeyOffset, currClip->numKeys * currClip->numCurves * sizeof(vec4));
+            startKeyOffset += currClip->numKeys * currClip->numCurves;
         }
         std::cout << "[Animation] Animation loaded!" << std::endl;
         return *ret;

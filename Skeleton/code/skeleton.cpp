@@ -39,6 +39,20 @@ void Skeleton::Load(string path)
     
 }
 
+void Skeleton::ApplyKey(const unsigned int clipIndex, const float keyIndex)
+{
+    if(clipIndex >= animation->ClipCount) return;
+    if(animation != nullptr)
+    {
+        for(int i = 0; i < joints.size(); i++)
+        {
+            joints[i]->pos = animation->Clips[clipIndex].getKey(i*4, keyIndex);
+            joints[i]->rot = animation->Clips[clipIndex].getKey(i*4+1, keyIndex);
+            joints[i]->scale = animation->Clips[clipIndex].getKey(i*4+2, keyIndex);
+        }
+    }
+}
+
 void Skeleton::draw(camera & c, light* lights, unsigned int size)
 {
     Root->RefreshTransform(mat4());

@@ -12,7 +12,7 @@
 #include <thread>
 #include "scene.h"
 #include "skeleton.h"
-#include "Nax3Loader.h"
+#include "Animation.h"
 
 static camera* activeCamera;
 float64 lastMousePosition[2] = {0,0};
@@ -28,6 +28,8 @@ float rotateSpeed = 0.01;
 float scrollSpeed = 1;
 float shiftSpeed = 0.01;
 float translateSpeed = 0.1;
+
+unsigned int currentAnimation = 0;
 
 struct POINT
 {
@@ -77,6 +79,18 @@ ExampleApp::Open()
 
 			case GLFW_KEY_LEFT_SHIFT:
 			shift = state;
+			break;
+
+			case GLFW_KEY_1:
+			case GLFW_KEY_2:
+			case GLFW_KEY_3:
+			case GLFW_KEY_4:
+			case GLFW_KEY_5:
+			case GLFW_KEY_6:
+			case GLFW_KEY_7:
+			case GLFW_KEY_8:
+			case GLFW_KEY_9:
+			currentAnimation = symbol - 49;
 			break;
 		}
 	});
@@ -171,14 +185,25 @@ ExampleApp::Run()
 	rig.boneMesh = &boneMesh;
 	rig.boneShader = &shader;
 	rig.boneTexture = &boneTex;
+	rig.animation = &animation;
 	rig.Load("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/Unit_Footman.constants");
-
+	unsigned int lastAnimation = 0;
 	mainScene.addObject((Skeleton*)&rig);
 	
-	float i = 0;
+	std::chrono::milliseconds start = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch());
+	std::chrono::milliseconds time = start - start;
 	while (this->window->IsOpen())
 	{
-		i+=1;
+		if(lastAnimation != currentAnimation)
+		{
+			std::cout << "Playing animation: " << rig.animation->Clips[currentAnimation].name << std::endl;
+			lastAnimation = currentAnimation;
+		}
+
+		std::chrono::milliseconds now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch());
+		std::chrono::milliseconds delta = now - start;
+		time += delta;
+		rig.ApplyKey(currentAnimation,(float)(delta.count())/1000);
 		if(wasd[0] != 0)
 		{
 			activeCamera->move(activeCamera->forward()*(-translateSpeed));

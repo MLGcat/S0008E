@@ -67,7 +67,8 @@ vec4 vec4::operator+(const vec4& rhs) const {
 	return vec4(
 		vec[0] + rhs.vec[0],
 		vec[1] + rhs.vec[1],
-		vec[2] + rhs.vec[2]);
+		vec[2] + rhs.vec[2],
+		vec[3] + rhs.vec[3]);
 };
 
 ///Subtraktion med vektor
@@ -106,10 +107,11 @@ vec4 vec4::operator%(const vec4& rhs) {
 
 ///Multiplikation med skal�r
 vec4 vec4::operator*(float s) const{
-	return(vec4(
+	return vec4(
 		vec[0] * s,
 		vec[1] * s,
-		vec[2] * s));
+		vec[2] * s,
+		vec[3] * s);
 };
 
 ///Multiplikation med skal�r
@@ -117,6 +119,7 @@ void vec4::operator*=(float s) {
 	vec[0] *= s;
 	vec[1] *= s;
 	vec[2] *= s;
+	vec[3] *= s;
 };
 
 ///Division med skal�r
@@ -147,7 +150,8 @@ const float vec4::abs() const{
 	return(sqrt(
 		pow(vec[0], 2) +
 		pow(vec[1], 2) +
-		pow(vec[2], 2)));
+		pow(vec[2], 2) +
+		pow(vec[3], 2)));
 };
 
 float& vec4::operator[](const int i) {
@@ -179,7 +183,7 @@ void vec4::set(float x, float y, float z, float a) {
 ///Returnerar vektorn i normalform
 const vec4 vec4::norm() const{
 	float a = 1 / this->abs();
-	return vec4(vec[0] * a, vec[1] * a, vec[2] * a, 1);
+	return vec4(vec[0] * a, vec[1] * a, vec[2] * a, vec[3] * a);
 };
 
 void vec4::print() {

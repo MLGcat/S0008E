@@ -54,6 +54,44 @@ public:
 	void set(float x, float y, float z);
 	void set(float x, float y, float z, float a);
 
+	static vec4 lerp(const vec4 & A, const vec4 & B, float t)
+	{
+		float u = 1-t;
+		return vec4(
+			A[0]*u + B[0]*t,
+			A[1]*u + B[1]*t,
+			A[2]*u + B[2]*t,
+			A[3]*u + B[3]*t
+		);
+	};
+
+	static vec4 qslerp(vec4 A, vec4 B, float t)
+	{
+		A = A.norm();
+		B = B.norm();
+
+		float dot = A*B;
+
+		if(dot < 0)
+		{
+			dot = -dot;
+			A[0] = -A[0];
+			A[1] = -A[1];
+			A[2] = -A[2];
+			A[3] = -A[3];
+		}
+		
+		float theta_0 = acos(dot);        
+		float theta = theta_0*t;          
+		float sin_theta = sin(theta);     
+		float sin_theta_0 = sin(theta_0); 
+
+		float As = cos(theta) - dot * sin_theta / sin_theta_0;
+		float Bs = sin_theta / sin_theta_0;
+
+		return (A*As) + (B*Bs);
+	};
+
 	void print();
 
 private:

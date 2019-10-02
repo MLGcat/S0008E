@@ -3,6 +3,7 @@
 #include "graphicsNode.h"
 #include "Math4D.h"
 #include "tinyxml.h"
+#include "Animation.h"
 
 class Joint;
 
@@ -14,10 +15,13 @@ public:
     shaderResource* boneShader;
     textureResource* boneTexture;
     std::vector<Joint*> joints;
+    Animation* animation;
 
     void Load(string path);
 
 	void draw(camera & c, light* lights, unsigned int size) override;
+
+    void ApplyKey(const unsigned int clipIndex, const float keyIndex);
    
 };
 
@@ -27,6 +31,7 @@ public:
     std::vector<Joint*> Children;
     int ID;
     vec4 pos, rot, scale;
+
 
     static Joint* FromXML(const TiXmlElement & element, Skeleton* skeleton) 
     {
@@ -68,6 +73,8 @@ public:
             Children[i]->draw(c,lights,size);
         }
     }
+
+    
 
 
 
