@@ -29,44 +29,44 @@ vec4 GetColor(Ray ray, Hitable* object, int recursionDepth)
     
 };
 
-HitableList *randomScene()
+HitableList *randomScene(const unsigned int objects, const bool bigSpheres)
 {
     int n = 10;
     HitableList* ret = new HitableList();
     ret->Register(new Sphere(0,-1000,0, 1000, new Diffuse(0.5,0.5,0.5)));
     int i = 1;
-    for(int a = -11; a < 11; a++)
-    {
-        for(int b = -11; b < 11; b++)
+    for(int n = 0; n < objects; n++)
+        float mat = drand48();
+        vec4 center(20*drand48()-10,0.2,20*drand48()-10);
+        if((center-vec4(4,0.2,0)).abs() > 0.9)
         {
-            float mat = drand48();
-            vec4 center(a+0.9*drand48(),0.2,b+0.9*drand48());
-            if((center-vec4(4,0.2,0)).abs() > 0.9)
+            if(mat < 0.8)
             {
-                if(mat < 0.8)
-                {
-                    ret->Register(new Sphere(center, 0.2, new Diffuse(drand48()*drand48(), drand48()*drand48(),drand48()*drand48())));
-                }
-                else if(mat < 0.95)
-                {
-                    ret->Register(new Sphere(center, 0.2, new Metal(0.5*(1+drand48()), 0.5*(1+drand48()),0.5*(1+drand48()), drand48())));
-                }
-                else
-                {
-                    ret->Register(new Sphere(center, 0.2, new Dielectric(1.5)));
-                }
-                
+                ret->Register(new Sphere(center, 0.2, new Diffuse(drand48()*drand48(), drand48()*drand48(),drand48()*drand48())));
             }
+            else if(mat < 0.95)
+            {
+                ret->Register(new Sphere(center, 0.2, new Metal(0.5*(1+drand48()), 0.5*(1+drand48()),0.5*(1+drand48()), drand48())));
+            }
+            else
+            {
+                ret->Register(new Sphere(center, 0.2, new Dielectric(1.5)));
+            }
+            
         }
     }
-    ret->Register(new Sphere(vec4(0,1,0),1, new Dielectric(1.5)));
-    ret->Register(new Sphere(vec4(-4,1,0),1, new Diffuse(0.4,0.2,0.1)));
-    ret->Register(new Sphere(vec4(4,1,0),1, new Metal(0.7,0.6,0.5,0)));
+    if(bigSpheres)
+    {
+        ret->Register(new Sphere(vec4(0,1,0),1, new Dielectric(1.5)));
+        ret->Register(new Sphere(vec4(-4,1,0),1, new Diffuse(0.4,0.2,0.1)));
+        ret->Register(new Sphere(vec4(4,1,0),1, new Metal(0.7,0.6,0.5,0)));
+    }
     return ret;
 }
 
-void PathTracer::Render(unsigned int samples,int & widthOut, int & heightOut)
+void PathTracer::Render(unsigned int samples,int & widthOut = 0, int & heightOut = 0)
 {
+    running = true;
     srand48(time(0));
     HitableList* world = randomScene();
 
@@ -91,4 +91,5 @@ void PathTracer::Render(unsigned int samples,int & widthOut, int & heightOut)
     }
     widthOut = this->width;
     heightOut = this->height;
+    running = false;
 }

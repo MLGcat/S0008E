@@ -1,19 +1,28 @@
-//------------------------------------------------------------------------------
-// main.cc
-// (C) 2015-2018 Individual contributors, see AUTHORS file
-//------------------------------------------------------------------------------
 #pragma once
-#include "config.h"
-#include "exampleapp.h"
+#include <iostream>
+#include <chrono>
+#include "pathtracer.h"
 
-int
-main(int argc, const char** argv)
+auto callback = [] ()
 {
-	Example::ExampleApp app;
-	if (app.Open())
+};
+
+int main(int argc, const char** argv)
+{
+	int width;
+	int height;
+	unsigned int samples;
+
+	for(int i = 0; i < argc; i++)
 	{
-		app.Run();
-		app.Close();
+		std::cout << "ARG[" << i << "]: " << argv[i] << std::endl;
 	}
-	app.Exit();
+	if(argc > 7 && argv[1] == "-w" && argv[3] == "-h" && argv[5] == "-s")
+	{
+		width = stoi(argv[2]);
+		height = stoi(argv[4]);
+		samples = stoi(argv[6]);
+		PathTracer tracer(width, height);
+		tracer.Render(samples, width, height);
+	}
 }
