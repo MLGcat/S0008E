@@ -6,6 +6,10 @@
 #include <iostream>
 #include <vector>
 #include <string.h>
+#include <memory>
+
+#include "Nvx2structs.h"
+#include <fstream>
 
 struct vert {
 	int coord;
@@ -27,6 +31,7 @@ public:
 
 	void bake();
 	void load(char* src);
+	static meshResource fromNVX2(const char path[]);
 
 	int vCount, fCount; //Vertex and face count
 	GLfloat* verts;
@@ -36,10 +41,6 @@ public:
 	GLuint vbo;
 	GLuint ibo;
 	GLuint vao;
-	GLuint tex;
-
-	GLuint vertexShader;
-	GLuint pixelShader;
 
 };
 

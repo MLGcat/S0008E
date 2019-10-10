@@ -1,7 +1,7 @@
 file(GLOB TEXTURES "*.bmp" "*.png")
 FILE(COPY ${TEXTURES} DESTINATION "${CMAKE_BINARY_DIR}/Textures")
 
-file(GLOB MODELS "*.obj" "*.png")
+file(GLOB MODELS "*.obj")
 FILE(COPY ${MODELS} DESTINATION "${CMAKE_BINARY_DIR}/Models")
 
 file(GLOB SHADERS "*.isf")

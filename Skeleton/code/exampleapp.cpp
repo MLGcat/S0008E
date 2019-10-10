@@ -13,6 +13,7 @@
 #include "scene.h"
 #include "skeleton.h"
 #include "Animation.h"
+#include "skinnedMesh.h"
 
 static camera* activeCamera;
 float64 lastMousePosition[2] = {0,0};
@@ -150,9 +151,6 @@ ExampleApp::Open()
 void
 ExampleApp::Run()
 {
-	Animation animation = Animation::FromNax3("/home/ludfra-7/Downloads/footman/footman/Unit_Footman.nax3");
-
-	scene mainScene;
 	
 	//GUI SHADER
 	shaderResource shader;
@@ -161,11 +159,28 @@ ExampleApp::Run()
 	shader.compile();
 	shader.use();
 
+	shaderResource skinShader;
+	skinShader.loadV("./build/Shaders/SkinVertexShader.isf");
+	skinShader.loadF("./build/Shaders/UnlitFragmentShader.isf");
+	skinShader.compile();
+	skinShader.use();
+
+
+	Animation animation = Animation::FromNax3("/home/ludfra-7/Downloads/footman/footman/Unit_Footman.nax3");
+	SkinnedMesh skin;
+	skin.LoadNVX2("/home/ludfra-7/Downloads/footman/footman/Unit_Footman.nvx2");
+	scene mainScene;
+
 	meshResource boneMesh;
 	boneMesh.load("./build/Models/sphere.obj");
 
 	textureResource boneTex;
 	boneTex.loadTexture("./build/Textures/mesa.bmp");
+
+	graphicsNode skinGraphic;
+	skinGraphic.setMesh(skin);
+	skinGraphic.setShader(skinShader);
+	skinGraphic.setTexture(boneTex);
 
 	//CAMERA
 	camera cam(1, 100, 50, 1);
@@ -188,10 +203,12 @@ ExampleApp::Run()
 	rig.animation = &animation;
 	rig.Load("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/Unit_Footman.constants");
 	unsigned int lastAnimation = 0;
-	mainScene.addObject((Skeleton*)&rig);
+	//mainScene.addObject((Skeleton*)&rig);
+	mainScene.addObject(&skinGraphic);
 	
 	std::chrono::milliseconds start = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch());
 	std::chrono::milliseconds time = start - start;
+
 	while (this->window->IsOpen())
 	{
 		if(lastAnimation != currentAnimation)

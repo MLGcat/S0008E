@@ -51,6 +51,8 @@ void meshResource::bake() {
 		glBindVertexArray(0);
 }
 
+
+
 void meshResource::load(char* src) {
 	FILE * file = fopen(src, "r");
 	if (file == NULL) {
