@@ -15,7 +15,11 @@ public:
     shaderResource* boneShader;
     textureResource* boneTexture;
     std::vector<Joint*> joints;
+    std::vector<mat4*> transforms;
+    std::vector<mat4> bindPose;
     Animation* animation;
+    GLuint* weightIndices;
+    bool showSkeleton;
 
     void Load(string path);
 
@@ -40,10 +44,9 @@ public:
         ret->setShader(*skeleton->boneShader);
         ret->setTexture(*skeleton->boneTexture);
         ret->ID = std::atoi(element.Attribute("index"));
-        ret->pos = arrToVec((char*)element.Attribute("position"))*3;
+        ret->pos = arrToVec((char*)element.Attribute("position"));
         ret->rot = arrToVec((char*)element.Attribute("rotation"));
         ret->scale = arrToVec((char*)element.Attribute("scale"));
-        ret->RefreshTransform(mat4());
         return ret;
     };
 

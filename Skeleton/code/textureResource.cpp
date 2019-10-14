@@ -2,16 +2,18 @@
 
 
 
-textureResource::textureResource()
+textureResource::textureResource(char* typeName)
 {
+	this->name = typeName;
 	glGenTextures(1, &tex);
 }
 
-textureResource::textureResource(unsigned char * img, int width, int height)
+textureResource::textureResource(unsigned char * img, int width, int height, char* typeName)
 {
 	this->img = img;
 	this->width = width;
 	this->height = height;
+	this->name = typeName;
 
 	glGenTextures(1, &tex);
 	glBindTexture(GL_TEXTURE_2D, tex);
@@ -37,7 +39,7 @@ void textureResource::use(GLuint & program) {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-	GLint texID = glGetUniformLocation(program, "Texture");
+	GLint texID = glGetUniformLocation(program, name);
 	glActiveTexture(GL_TEXTURE0);
 	glUniform1i(texID, 0);
 }

@@ -31,6 +31,10 @@ public:
 
             verts = (GLfloat*)new unsigned char[header->numVertices*header->vertexWidth];
             unsigned int vertsOffset = 0;
+            for(int i = 0; i < 100; i++)
+            {
+                std::cout << verts[i] << std::endl;
+            }
 
             for(int group = 0; group < header->numGroups; group++)
             {

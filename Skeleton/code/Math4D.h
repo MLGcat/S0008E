@@ -140,6 +140,9 @@ public:
 	mat4 operator*(const mat4& rhs);
 	vec4 operator*(const vec4 &rhs);
 
+	//Division
+	mat4 operator/(const mat4& rhs);
+
 	//Transponat
 	mat4 transpose();
 

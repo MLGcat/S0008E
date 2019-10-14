@@ -19,10 +19,11 @@ uniform float[3] ambientLight;
 uniform sampler2D Texture;
 
 uniform float[5] specData;
-
 out vec4 Color;
 void main()
 {
+    Color = vec4(norm,1);
+    return;
 	Color = texture2D(Texture, vec2(uv.x,1-uv.y));
 	vec3 specColor = vec3(specData[0], specData[1], specData[2]);
 	vec3 normal = normalize(norm);

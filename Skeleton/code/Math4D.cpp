@@ -421,6 +421,27 @@ mat4 mat4::operator*(float s) {
 	return ret;
 };
 
+mat4 mat4::operator/(const mat4& b) {
+	mat4 ret;
+	ret.mat[0][0] = mat[0][0] / b.mat[0][0] + mat[0][1] / b.mat[1][0] + mat[0][2] / b.mat[2][0] + mat[0][3] / b.mat[3][0];
+	ret.mat[0][1] = mat[0][0] / b.mat[0][1] + mat[0][1] / b.mat[1][1] + mat[0][2] / b.mat[2][1] + mat[0][3] / b.mat[3][1];
+	ret.mat[0][2] = mat[0][0] / b.mat[0][2] + mat[0][1] / b.mat[1][2] + mat[0][2] / b.mat[2][2] + mat[0][3] / b.mat[3][2];
+	ret.mat[0][3] = mat[0][0] / b.mat[0][3] + mat[0][1] / b.mat[1][3] + mat[0][2] / b.mat[2][3] + mat[0][3] / b.mat[3][3];
+	ret.mat[1][0] = mat[1][0] / b.mat[0][0] + mat[1][1] / b.mat[1][0] + mat[1][2] / b.mat[2][0] + mat[1][3] / b.mat[3][0];
+	ret.mat[1][1] = mat[1][0] / b.mat[0][1] + mat[1][1] / b.mat[1][1] + mat[1][2] / b.mat[2][1] + mat[1][3] / b.mat[3][1];
+	ret.mat[1][2] = mat[1][0] / b.mat[0][2] + mat[1][1] / b.mat[1][2] + mat[1][2] / b.mat[2][2] + mat[1][3] / b.mat[3][2];
+	ret.mat[1][3] = mat[1][0] / b.mat[0][3] + mat[1][1] / b.mat[1][3] + mat[1][2] / b.mat[2][3] + mat[1][3] / b.mat[3][3];
+	ret.mat[2][0] = mat[2][0] / b.mat[0][0] + mat[2][1] / b.mat[1][0] + mat[2][2] / b.mat[2][0] + mat[2][3] / b.mat[3][0];
+	ret.mat[2][1] = mat[2][0] / b.mat[0][1] + mat[2][1] / b.mat[1][1] + mat[2][2] / b.mat[2][1] + mat[2][3] / b.mat[3][1];
+	ret.mat[2][2] = mat[2][0] / b.mat[0][2] + mat[2][1] / b.mat[1][2] + mat[2][2] / b.mat[2][2] + mat[2][3] / b.mat[3][2];
+	ret.mat[2][3] = mat[2][0] / b.mat[0][3] + mat[2][1] / b.mat[1][3] + mat[2][2] / b.mat[2][3] + mat[2][3] / b.mat[3][3];
+	ret.mat[3][0] = mat[3][0] / b.mat[0][0] + mat[3][1] / b.mat[1][0] + mat[3][2] / b.mat[2][0] + mat[3][3] / b.mat[3][0];
+	ret.mat[3][1] = mat[3][0] / b.mat[0][1] + mat[3][1] / b.mat[1][1] + mat[3][2] / b.mat[2][1] + mat[3][3] / b.mat[3][1];
+	ret.mat[3][2] = mat[3][0] / b.mat[0][2] + mat[3][1] / b.mat[1][2] + mat[3][2] / b.mat[2][2] + mat[3][3] / b.mat[3][2];
+	ret.mat[3][3] = mat[3][0] / b.mat[0][3] + mat[3][1] / b.mat[1][3] + mat[3][2] / b.mat[2][3] + mat[3][3] / b.mat[3][3];
+	return ret;
+};
+
 mat4 mat4::transpose() {
 	mat4 ret(
 		mat[0][0],

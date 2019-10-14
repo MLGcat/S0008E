@@ -30,7 +30,7 @@ float scrollSpeed = 1;
 float shiftSpeed = 0.01;
 float translateSpeed = 0.1;
 
-unsigned int currentAnimation = 0;
+unsigned int currentAnimation = 6;
 
 struct POINT
 {
@@ -175,12 +175,8 @@ ExampleApp::Run()
 	boneMesh.load("./build/Models/sphere.obj");
 
 	textureResource boneTex;
-	boneTex.loadTexture("./build/Textures/mesa.bmp");
+	boneTex.loadTexture("/home/ludfra-7/Downloads/footman/footman/Footman_Diffuse.tga");
 
-	graphicsNode skinGraphic;
-	skinGraphic.setMesh(skin);
-	skinGraphic.setShader(skinShader);
-	skinGraphic.setTexture(boneTex);
 
 	//CAMERA
 	camera cam(1, 100, 50, 1);
@@ -201,10 +197,16 @@ ExampleApp::Run()
 	rig.boneShader = &shader;
 	rig.boneTexture = &boneTex;
 	rig.animation = &animation;
+	rig.showSkeleton = false;
+
+	rig.setMesh(skin);
+	rig.setShader(skinShader);
+	rig.setTexture(boneTex);
+
 	rig.Load("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/Unit_Footman.constants");
 	unsigned int lastAnimation = 0;
-	//mainScene.addObject((Skeleton*)&rig);
-	mainScene.addObject(&skinGraphic);
+
+	mainScene.addObject((Skeleton*)&rig);
 	
 	std::chrono::milliseconds start = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch());
 	std::chrono::milliseconds time = start - start;

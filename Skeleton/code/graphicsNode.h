@@ -28,7 +28,7 @@ public:
 
 
 	virtual void draw(camera & c, light* lights, unsigned int size);
-private:
+protected:
 	std::shared_ptr<meshResource> mesh;
 	std::shared_ptr<textureResource> texture;
 	std::shared_ptr<shaderResource> shader;
