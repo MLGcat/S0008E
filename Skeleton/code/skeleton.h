@@ -42,7 +42,7 @@ public:
         Joint* ret = new Joint();
         ret->setMesh(*skeleton->boneMesh);
         ret->setShader(*skeleton->boneShader);
-        ret->setTexture(*skeleton->boneTexture);
+        ret->addTexture(*skeleton->boneTexture);
         ret->ID = std::atoi(element.Attribute("index"));
         ret->pos = arrToVec((char*)element.Attribute("position"));
         ret->rot = arrToVec((char*)element.Attribute("rotation"));

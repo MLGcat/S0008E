@@ -4,19 +4,30 @@
 #include <stdlib.h>
 #include <stb_image.h>
 
+enum TextureType
+{
+	TexDiffuse,
+	TexNormal,
+	TexRoughness
+};
+
 class textureResource
 {
+
 public:
-	textureResource(char* typeName);
-	textureResource() : textureResource("Diffuse"){};
-	textureResource(unsigned char * img, int width, int height, char* typeName);
-	textureResource(unsigned char * img, int width, int height) : textureResource(img, width, height, "Diffuse"){};
+	textureResource(unsigned int type);
+	textureResource() : textureResource(0){};
+	textureResource(unsigned char * img, int width, int height, unsigned int type);
+	textureResource(unsigned char * img, int width, int height) : textureResource(img, width, height, 0){};
 	~textureResource();
 	void loadTexture(char* path);
 	void use(GLuint & program);
 	int width, height;
 	GLuint tex;
+	GLuint type = 0;
 	char* name;
 	unsigned char* img;
+protected:
+	char* getName();
 };
 

@@ -11,7 +11,7 @@ public:
 	~graphicsNode();
 	void setMesh(meshResource & mesh);
 	void setShader(shaderResource & shader);
-	void setTexture(textureResource & shader);
+	void addTexture(textureResource & shader);
 
 	void transform(float x, float y, float z);
 	void rotation(float x, float y, float z);
@@ -30,7 +30,7 @@ public:
 	virtual void draw(camera & c, light* lights, unsigned int size);
 protected:
 	std::shared_ptr<meshResource> mesh;
-	std::shared_ptr<textureResource> texture;
+	std::vector<std::shared_ptr<textureResource>> textures;
 	std::shared_ptr<shaderResource> shader;
 	
 	float specData[5];

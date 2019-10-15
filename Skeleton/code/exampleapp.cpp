@@ -152,16 +152,10 @@ void
 ExampleApp::Run()
 {
 	
-	//GUI SHADER
-	shaderResource shader;
-	shader.loadV("./build/Shaders/VertexShader.isf");
-	shader.loadF("./build/Shaders/UnlitFragmentShader.isf");
-	shader.compile();
-	shader.use();
 
 	shaderResource skinShader;
 	skinShader.loadV("./build/Shaders/SkinVertexShader.isf");
-	skinShader.loadF("./build/Shaders/UnlitFragmentShader.isf");
+	skinShader.loadF("./build/Shaders/LitFragmentShader.isf");
 	skinShader.compile();
 	skinShader.use();
 
@@ -174,8 +168,11 @@ ExampleApp::Run()
 	meshResource boneMesh;
 	boneMesh.load("./build/Models/sphere.obj");
 
-	textureResource boneTex;
-	boneTex.loadTexture("/home/ludfra-7/Downloads/footman/footman/Footman_Diffuse.tga");
+	textureResource diffuse(0);
+	diffuse.loadTexture("/home/ludfra-7/Downloads/footman/footman/Footman_Diffuse.tga");
+
+	textureResource normal(1);
+	normal.loadTexture("/home/ludfra-7/Downloads/footman/footman/Footman_Normal.tga");
 
 
 	//CAMERA
@@ -194,18 +191,23 @@ ExampleApp::Run()
 
 	Skeleton rig;
 	rig.boneMesh = &boneMesh;
-	rig.boneShader = &shader;
-	rig.boneTexture = &boneTex;
+	rig.boneShader = &skinShader;
+	rig.boneTexture = &diffuse;
 	rig.animation = &animation;
 	rig.showSkeleton = false;
 
 	rig.setMesh(skin);
 	rig.setShader(skinShader);
-	rig.setTexture(boneTex);
+	rig.addTexture(diffuse);
+	rig.addTexture(normal);
+
+	light asd(vec4(1,0,0), vec4(1,1,1), 1);
+
 
 	rig.Load("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/Unit_Footman.constants");
 	unsigned int lastAnimation = 0;
 
+	mainScene.addLight(asd);
 	mainScene.addObject((Skeleton*)&rig);
 	
 	std::chrono::milliseconds start = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch());

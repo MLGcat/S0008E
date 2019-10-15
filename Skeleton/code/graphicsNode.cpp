@@ -8,7 +8,10 @@ graphicsNode::~graphicsNode(){
 
 void graphicsNode::draw(camera & c, light* lights, unsigned int size) {
 	shader->use();
-	texture->use(shader->program);
+	for(GLuint i = 0; i < textures.size(); i++)
+	{
+		textures.at(i)->use(shader->program);
+	}
 
 	glUniformMatrix4fv(glGetUniformLocation(shader->program, "m"), 1, GL_TRUE, model.get());
 	glUniformMatrix4fv(glGetUniformLocation(shader->program, "v"), 1, GL_TRUE, c.view().get());
@@ -58,8 +61,8 @@ void graphicsNode::setShader(shaderResource & shader) {
 	this->shader = make_shared<shaderResource>(shader);
 }
 
-void graphicsNode::setTexture(textureResource & texture) {
-	this->texture = make_shared<textureResource>(texture);
+void graphicsNode::addTexture(textureResource & texture) {
+	this->textures.push_back(make_shared<textureResource>(texture));
 }
 
 //TRANSFORM
@@ -88,7 +91,7 @@ std::shared_ptr<meshResource> graphicsNode::getMesh() {
 }
 
 std::shared_ptr<textureResource> graphicsNode::getTexture() {
-	return texture;
+	return textures.at(0);
 }
 
 std::shared_ptr<shaderResource> graphicsNode::getShader() {

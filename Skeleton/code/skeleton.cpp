@@ -85,7 +85,10 @@ void Skeleton::draw(camera & c, light* lights, unsigned int size)
     if(showSkeleton)Root->draw(c, lights, size);
     
     shader->use();
-	texture->use(shader->program);
+	for(GLuint i = 0; i < textures.size(); i++)
+	{
+		textures.at(i)->use(shader->program);
+	}
 
 	glUniformMatrix4fv(glGetUniformLocation(shader->program, "m"), 1, GL_TRUE, model.get());
 	glUniformMatrix4fv(glGetUniformLocation(shader->program, "v"), 1, GL_TRUE, c.view().get());
@@ -107,12 +110,7 @@ void Skeleton::draw(camera & c, light* lights, unsigned int size)
 	}
 
 	//Camera
-	float* test = &c.pos.get3();
-	GLfloat test2[3];
-	test2[0] = test[0];
-	test2[1] = test[1];
-	test2[2] = test[2];
-	glUniform1fv(glGetUniformLocation(shader->program, "camPos"), 3, test2);
+	glUniform1fv(glGetUniformLocation(shader->program, "camPos"), 3, &c.pos.get3());
 	glUniform1fv(glGetUniformLocation(shader->program, "ambientLight"), 3, c.ambientLight);
     
     

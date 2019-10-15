@@ -94,8 +94,6 @@ public:
 
                 index = new GLuint[header->numIndices * 3];
                 memcpy(index, dataPtr, header->numIndices * sizeof(GLuint) * 3);
-
-                
             }
 
             delete buffer;
@@ -108,5 +106,6 @@ public:
 
             glBindVertexArray(0);
         }
+        return SkinnedMesh();
     }
 };
