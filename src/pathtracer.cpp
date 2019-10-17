@@ -65,11 +65,12 @@ HitableList *randomScene(const unsigned int objects, const bool bigSpheres)
     return ret;
 }
 
-void PathTracer::Render(unsigned int samples)
+void PathTracer::Render(unsigned int samples, unsigned int count)
 {
+    std::cout << "Render started!" << std::endl;
     running = true;
     srand48(time(0));
-    HitableList* world = randomScene();
+    HitableList* world = randomScene(count, false);
 
     for(int s = 1; s <= samples; s++)
     {
@@ -90,5 +91,6 @@ void PathTracer::Render(unsigned int samples)
             }
         }
     }
+    std::cout << "Render complete!" << std::endl;
     running = false;
 }
