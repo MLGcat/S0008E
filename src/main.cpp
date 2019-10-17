@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include <chrono>
 #include "pathtracer.h"
@@ -23,6 +22,6 @@ int main(int argc, const char** argv)
 		height = stoi(argv[4]);
 		samples = stoi(argv[6]);
 		PathTracer tracer(width, height);
-		tracer.Render(samples, width, height);
+		tracer.Render(samples);
 	}
 }

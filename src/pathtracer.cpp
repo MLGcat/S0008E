@@ -36,6 +36,7 @@ HitableList *randomScene(const unsigned int objects, const bool bigSpheres)
     ret->Register(new Sphere(0,-1000,0, 1000, new Diffuse(0.5,0.5,0.5)));
     int i = 1;
     for(int n = 0; n < objects; n++)
+    {
         float mat = drand48();
         vec4 center(20*drand48()-10,0.2,20*drand48()-10);
         if((center-vec4(4,0.2,0)).abs() > 0.9)
@@ -64,7 +65,7 @@ HitableList *randomScene(const unsigned int objects, const bool bigSpheres)
     return ret;
 }
 
-void PathTracer::Render(unsigned int samples,int & widthOut = 0, int & heightOut = 0)
+void PathTracer::Render(unsigned int samples)
 {
     running = true;
     srand48(time(0));
@@ -89,7 +90,5 @@ void PathTracer::Render(unsigned int samples,int & widthOut = 0, int & heightOut
             }
         }
     }
-    widthOut = this->width;
-    heightOut = this->height;
     running = false;
 }

@@ -275,7 +275,7 @@ class PathTracer
 {
 public:
     PathTracer(int width,int height);
-    void Render(unsigned int samples, int & widthOut, int & heightOut);
+    void Render(unsigned int samples);
     unsigned char* image;
     bool running = false;
 private:
