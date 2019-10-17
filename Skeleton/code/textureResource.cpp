@@ -25,6 +25,7 @@ char* textureResource::getName()
 	{
 		case 0: return "Diffuse";
 		case 1: return "Normal";
+		case 2: return "Specular";
 		default: return "";
 	}
 }
@@ -36,12 +37,12 @@ textureResource::~textureResource()
 void textureResource::loadTexture(char* path) {
 	//TEXTUR
 	int chan;
-	img = stbi_load(path, &width, &height, &chan, STBI_rgb);
+	img = stbi_load(path, &width, &height, &chan, STBI_rgb_alpha);
 }
 
 void textureResource::use(GLuint & program) {
 	glBindTexture(GL_TEXTURE_2D, tex);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, img);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, img);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
@@ -49,6 +50,6 @@ void textureResource::use(GLuint & program) {
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	
 	GLint texID = glGetUniformLocation(program, name);
-	glActiveTexture(GL_TEXTURE1);
+	glActiveTexture(GL_TEXTURE1 + type);
 	glUniform1i(texID, type);
 }

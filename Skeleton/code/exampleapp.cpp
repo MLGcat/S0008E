@@ -168,11 +168,15 @@ ExampleApp::Run()
 	meshResource boneMesh;
 	boneMesh.load("./build/Models/sphere.obj");
 
-	textureResource diffuse(0);
+	textureResource diffuse(TexDiffuse);
 	diffuse.loadTexture("/home/ludfra-7/Downloads/footman/footman/Footman_Diffuse.tga");
 
-	textureResource normal(1);
+	textureResource normal(TexNormal);
 	normal.loadTexture("/home/ludfra-7/Downloads/footman/footman/Footman_Normal.tga");
+
+
+	textureResource spec(TexSpecular);
+	spec.loadTexture("/home/ludfra-7/Downloads/footman/footman/Footman_Specular.tga");
 
 
 	//CAMERA
@@ -200,6 +204,7 @@ ExampleApp::Run()
 	rig.setShader(skinShader);
 	rig.addTexture(diffuse);
 	rig.addTexture(normal);
+	rig.addTexture(spec);
 
 	light asd(vec4(1,0,0), vec4(1,1,1), 1);
 
@@ -207,7 +212,7 @@ ExampleApp::Run()
 	rig.Load("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/Unit_Footman.constants");
 	unsigned int lastAnimation = 0;
 
-	mainScene.addLight(asd);
+	mainScene.addLight((light*)&asd);
 	mainScene.addObject((Skeleton*)&rig);
 	
 	std::chrono::milliseconds start = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch());
@@ -225,6 +230,7 @@ ExampleApp::Run()
 		std::chrono::milliseconds delta = now - start;
 		time += delta;
 		rig.ApplyKey(currentAnimation,(float)(delta.count())/1000);
+		asd.setPos(10*sin((float)delta.count()/500),0,10*cos((float)delta.count()/500));
 		if(wasd[0] != 0)
 		{
 			activeCamera->move(activeCamera->forward()*(-translateSpeed));

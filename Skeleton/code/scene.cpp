@@ -12,7 +12,7 @@ void scene::removeObject()
 
 };
 
-void scene::addLight(light newLight)
+void scene::addLight(light * newLight)
 {
     lights.push_back(newLight);
 };
@@ -23,7 +23,7 @@ void scene::draw(camera & cam)
     
     for(int i = 0; i < objects.size(); i++)
     {
-        objects[i]->draw(cam, &lights[0], lights.size());
+        objects[i]->draw(cam, lights[0], lights.size());
     }
 
 };

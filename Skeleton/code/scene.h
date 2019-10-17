@@ -13,11 +13,11 @@ public:
     scene();
     void addObject(graphicsNode * obj);
     void removeObject();
-    void addLight(light newLight);
+    void addLight(light * newLight);
     void draw(camera & cam);
 
 private:
     std::vector<graphicsNode*> objects;
-    std::vector<light> lights;
+    std::vector<light*> lights;
     camera* activeCamera;
 };

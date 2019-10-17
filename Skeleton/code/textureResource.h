@@ -8,7 +8,7 @@ enum TextureType
 {
 	TexDiffuse,
 	TexNormal,
-	TexRoughness
+	TexSpecular
 };
 
 class textureResource
