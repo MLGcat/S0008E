@@ -1,6 +1,7 @@
 #pragma once
 #include "Math4D.h"
 #include <vector>
+#include <fstream>
 
 class Ray
 {
@@ -279,7 +280,9 @@ public:
     unsigned char* image;
     bool running = false;
 private:
+    vec4 GetColor(Ray ray, Hitable* object, int recursionDepth);
     Camera* camera;
     int width;
     int height;
+    unsigned int rayCount;
 };

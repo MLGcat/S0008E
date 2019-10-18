@@ -6,7 +6,7 @@ PathTracer::PathTracer(int width, int height)
     this->camera = new Camera(36,((float)height)/width,.1,10, vec4(13,2,3), vec4(0,0,0));
     this->image = new unsigned char[width * height * 3];
 }
-unsigned int seed = 1337;
+unsigned int seed = 133742069;
 float xorshift()
 {
     unsigned int ret = seed;
@@ -17,8 +17,9 @@ float xorshift()
     return (float)ret/4294967296;
 }
 
-vec4 GetColor(Ray ray, Hitable* object, int recursionDepth)
+vec4 PathTracer::GetColor(Ray ray, Hitable* object, int recursionDepth)
 {
+    rayCount++;
     recursionDepth--;
     Hitdata hit;
     if(object->Hit(ray, 0.001, MAXFLOAT, hit))
@@ -77,9 +78,10 @@ HitableList *randomScene(const unsigned int objects, const bool bigSpheres)
 
 void PathTracer::Render(unsigned int samples, unsigned int count)
 {
+    std::ofstream output ("/home/ludfra-7/Pictures/REEEE.p3", std::ofstream::binary);
+    output << "P3\n256 256\n256\n";
     std::cout << "Render started!" << std::endl;
     running = true;
-    srand48(time(0));
     HitableList* world = randomScene(count, false);
 
     for(int s = 1; s <= samples; s++)
@@ -92,7 +94,7 @@ void PathTracer::Render(unsigned int samples, unsigned int count)
                 vec4 pixelColor(0,0,0,0);
                 float u = (x + xorshift()) / (float)width;
                 float v = (y + xorshift()) / (float)height;
-                pixelColor += GetColor(camera->GetRay(u,v), world, 50);
+                pixelColor += GetColor(camera->GetRay(u,1-v), world, 50);
                 
                 pixelColor = vec4(sqrt(pixelColor[0]), sqrt(pixelColor[1]),sqrt(pixelColor[2]));
                 image[(y * width + x) * 3] = (image[(y * width + x) * 3]*(s-1) + pixelColor[0]*255) / s;
@@ -101,6 +103,14 @@ void PathTracer::Render(unsigned int samples, unsigned int count)
             }
         }
     }
-    std::cout << "Render complete!" << std::endl;
+    for(unsigned int y = 0; y < height; y++)
+    {
+        for(unsigned int x = 0; x < width; x++)
+        {
+            output << (int)image[(y * width + x) * 3] << " " << (int)image[(y * width + x) * 3 + 1] << " " << (int)image[(y * width + x) * 3 + 2] << " ";
+        }
+        output << "\n";
+    }
+    std::cout << "Render complete! Time: " << std::endl;
     running = false;
 }
