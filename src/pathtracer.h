@@ -2,6 +2,7 @@
 #include "Math4D.h"
 #include <vector>
 #include <fstream>
+#include <chrono>
 
 class Ray
 {
@@ -25,6 +26,7 @@ class Hitable
 {
 public:
     virtual bool Hit(Ray& ray, float t_min, float t_max, Hitdata& hits) = 0;
+    virtual ~Hitable(){};
 };
 
 class Material
@@ -150,6 +152,14 @@ public:
 class HitableList : public Hitable
 {
 public:
+    ~HitableList()
+    {
+        for(Hitable* object : objects)
+        {
+            delete object;
+        }
+        objects.clear();
+    }
     void Register(Hitable* object){objects.push_back(object);};
     bool Hit(Ray& ray, float t_min, float t_max, Hitdata& hits) override
     {
@@ -179,6 +189,10 @@ class Sphere : public Hitable
 public:
     Sphere(vec4 pos, float radius, Material* material){this->pos = pos; this->radius = radius; this->material = material;};
     Sphere(float x, float y, float z, float radius, Material* material ){this->pos = vec4(x,y,z); this->radius = radius; this->material = material;};
+    ~Sphere()
+    {
+        delete material;
+    }
     bool Hit(Ray& ray, float t_min, float t_max, Hitdata& hit) override
     {
         vec4 oc = ray.Origin - pos;
@@ -276,6 +290,7 @@ class PathTracer
 {
 public:
     PathTracer(int width,int height);
+    ~PathTracer();
     void Render(unsigned int samples, unsigned int count);
     unsigned char* image;
     bool running = false;

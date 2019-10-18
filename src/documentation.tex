@@ -3,44 +3,33 @@
 \usepackage{tree-dvips}
 \begin{document}
 
-\section*{Notes for My Paper}
+\section*{Valgrind}
+\subsection*{Memory leaks}
 
-Don't forget to include examples of topicalization.
-They look like this:
+A total of 3 leaks were identified by valgrind:
 
-{\small
-\enumsentence{Topicalization from sentential subject:\\ 
-\shortex{7}{a John$_i$ [a & kltukl & [el & 
-  {\bf l-}oltoir & er & ngii$_i$ & a Mary]]}
-{ & {\bf R-}clear & {\sc comp} & 
-  {\bf IR}.{\sc 3s}-love   & P & him & }
-{John, (it's) clear that Mary loves (him).}}
-}
+==621== HEAP SUMMARY:
+==621==     in use at exit: 200,604 bytes in 106 blocks
+==621==   total heap usage: 116 allocs, 10 frees, 283,580 bytes allocated
+==621== 
+==621== 116 bytes in 1 blocks are definitely lost in loss record 4 of 12
+==621==    at 0x4838DEF: operator new(unsigned long) (vg_replace_malloc.c:344)
+==621==    by 0x10AA27: PathTracer::PathTracer(int, int) (pathtracer.cpp:6)
+==621==    by 0x10A67A: main (main.cpp:27)
+==621== 
+==621== 3,880 (32 direct, 3,848 indirect) bytes in 1 blocks are definitely lost in loss record 11 of 12
+==621==    at 0x4838DEF: operator new(unsigned long) (vg_replace_malloc.c:344)
+==621==    by 0x10AFC3: randomScene(unsigned int, bool) (pathtracer.cpp:46)
+==621==    by 0x10B875: PathTracer::Render(unsigned int, unsigned int) (pathtracer.cpp:87)
+==621==    by 0x10A690: main (main.cpp:28)
+==621== 
+==621== 196,608 bytes in 1 blocks are definitely lost in loss record 12 of 12
+==621==    at 0x483950F: operator new[](unsigned long) (vg_replace_malloc.c:433)
+==621==    by 0x10AA9A: PathTracer::PathTracer(int, int) (pathtracer.cpp:7)
+==621==    by 0x10A67A: main (main.cpp:27)
 
-\subsection*{How to handle topicalization}
+These came from the creation of the output buffer, camera and scene, which were not removed upon the destruction of the pathtracer.
 
-I'll just assume a tree structure like (\ex{1}).
 
-{\small
-\enumsentence{Structure of A$'$ Projections:\\ [2ex]
-\begin{tabular}[t]{cccc}
-    & \node{i}{CP}\\ [2ex]
-    \node{ii}{Spec} &   &\node{iii}{C$'$}\\ [2ex]
-        &\node{iv}{C} & & \node{v}{SAgrP}
-\end{tabular}
-\nodeconnect{i}{ii}
-\nodeconnect{i}{iii}
-\nodeconnect{iii}{iv}
-\nodeconnect{iii}{v}
-}
-}
-
-\subsection*{Mood}
-
-Mood changes when there is a topic, as well as when
-there is WH-movement.  \emph{Irrealis} is the mood when
-there is a non-subject topic or WH-phrase in Comp.
-\emph{Realis} is the mood when there is a subject topic
-or WH-phrase.
 
 \end{document}

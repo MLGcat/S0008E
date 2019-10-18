@@ -6,15 +6,20 @@ PathTracer::PathTracer(int width, int height)
     this->camera = new Camera(36,((float)height)/width,.1,10, vec4(13,2,3), vec4(0,0,0));
     this->image = new unsigned char[width * height * 3];
 }
+
+PathTracer::~PathTracer()
+{
+    delete this->camera;
+    delete[] this->image;
+}
+
 unsigned int seed = 133742069;
 float xorshift()
 {
-    unsigned int ret = seed;
-    ret ^= ret << 13;
-    ret ^= ret >> 17;
-    ret ^= ret << 5;
-    seed = ret;
-    return (float)ret/4294967296;
+    seed ^= seed << 13;
+    seed ^= seed >> 17;
+    seed ^= seed << 5;
+    return (float)seed/4294967296;
 }
 
 vec4 PathTracer::GetColor(Ray ray, Hitable* object, int recursionDepth)
@@ -78,9 +83,11 @@ HitableList *randomScene(const unsigned int objects, const bool bigSpheres)
 
 void PathTracer::Render(unsigned int samples, unsigned int count)
 {
+    rayCount = 0;
     std::ofstream output ("/home/ludfra-7/Pictures/REEEE.p3", std::ofstream::binary);
     output << "P3\n256 256\n256\n";
     std::cout << "Render started!" << std::endl;
+    std::chrono::milliseconds start = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch());
     running = true;
     HitableList* world = randomScene(count, false);
 
@@ -103,6 +110,8 @@ void PathTracer::Render(unsigned int samples, unsigned int count)
             }
         }
     }
+    std::chrono::milliseconds time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()) - start;
+	
     for(unsigned int y = 0; y < height; y++)
     {
         for(unsigned int x = 0; x < width; x++)
@@ -111,6 +120,8 @@ void PathTracer::Render(unsigned int samples, unsigned int count)
         }
         output << "\n";
     }
-    std::cout << "Render complete! Time: " << std::endl;
+    
+    std::cout << "Render complete! \nTime: " << (float)time.count()/1000 << "s\nRays: " << rayCount << std::endl;
+    delete world;
     running = false;
 }
