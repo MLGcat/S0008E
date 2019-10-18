@@ -6,6 +6,16 @@ PathTracer::PathTracer(int width, int height)
     this->camera = new Camera(36,((float)height)/width,.1,10, vec4(13,2,3), vec4(0,0,0));
     this->image = new unsigned char[width * height * 3];
 }
+unsigned int seed = 1337;
+float xorshift()
+{
+    unsigned int ret = seed;
+    ret ^= ret << 13;
+    ret ^= ret >> 17;
+    ret ^= ret << 5;
+    seed = ret;
+    return (float)ret/4294967296;
+}
 
 vec4 GetColor(Ray ray, Hitable* object, int recursionDepth)
 {
@@ -37,17 +47,17 @@ HitableList *randomScene(const unsigned int objects, const bool bigSpheres)
     int i = 1;
     for(int n = 0; n < objects; n++)
     {
-        float mat = drand48();
-        vec4 center(20*drand48()-10,0.2,20*drand48()-10);
+        float mat = xorshift();
+        vec4 center(20*xorshift()-10,0.2,20*xorshift()-10);
         if((center-vec4(4,0.2,0)).abs() > 0.9)
         {
             if(mat < 0.8)
             {
-                ret->Register(new Sphere(center, 0.2, new Diffuse(drand48()*drand48(), drand48()*drand48(),drand48()*drand48())));
+                ret->Register(new Sphere(center, 0.2, new Diffuse(xorshift()*xorshift(), xorshift()*xorshift(),xorshift()*xorshift())));
             }
             else if(mat < 0.95)
             {
-                ret->Register(new Sphere(center, 0.2, new Metal(0.5*(1+drand48()), 0.5*(1+drand48()),0.5*(1+drand48()), drand48())));
+                ret->Register(new Sphere(center, 0.2, new Metal(0.5*(1+xorshift()), 0.5*(1+xorshift()),0.5*(1+xorshift()), xorshift())));
             }
             else
             {
@@ -80,8 +90,8 @@ void PathTracer::Render(unsigned int samples, unsigned int count)
             for(int x = 0; x < width; x++)
             {
                 vec4 pixelColor(0,0,0,0);
-                float u = (x + drand48()) / (float)width;
-                float v = (y + drand48()) / (float)height;
+                float u = (x + xorshift()) / (float)width;
+                float v = (y + xorshift()) / (float)height;
                 pixelColor += GetColor(camera->GetRay(u,v), world, 50);
                 
                 pixelColor = vec4(sqrt(pixelColor[0]), sqrt(pixelColor[1]),sqrt(pixelColor[2]));
