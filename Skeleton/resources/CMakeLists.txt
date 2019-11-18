@@ -1,8 +1,11 @@
-file(GLOB TEXTURES "*.bmp" "*.png")
+file(GLOB TEXTURES "*.bmp" "*.png" "*.tga")
 FILE(COPY ${TEXTURES} DESTINATION "${CMAKE_BINARY_DIR}/Textures")
 
-file(GLOB MODELS "*.obj")
+file(GLOB MODELS "*.obj" "*.constants" "*.nvx2")
 FILE(COPY ${MODELS} DESTINATION "${CMAKE_BINARY_DIR}/Models")
 
 file(GLOB SHADERS "*.isf")
 FILE(COPY ${SHADERS} DESTINATION "${CMAKE_BINARY_DIR}/Shaders")
+
+file(GLOB SHADERS "*.nax3")
+FILE(COPY ${SHADERS} DESTINATION "${CMAKE_BINARY_DIR}/Animations")

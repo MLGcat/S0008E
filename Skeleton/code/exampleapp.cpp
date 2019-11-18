@@ -160,23 +160,23 @@ ExampleApp::Run()
 	skinShader.use();
 
 
-	Animation animation = Animation::FromNax3("/home/ludfra-7/Downloads/footman/footman/Unit_Footman.nax3");
+	Animation animation = Animation::FromNax3("./build/Animations/Unit_Footman.nax3");
 	SkinnedMesh skin;
-	skin.LoadNVX2("/home/ludfra-7/Downloads/footman/footman/Unit_Footman.nvx2");
+	skin.LoadNVX2("./build/Models/Unit_Footman.nvx2");
 	scene mainScene;
 
 	meshResource boneMesh;
 	boneMesh.load("./build/Models/sphere.obj");
 
 	textureResource diffuse(TexDiffuse);
-	diffuse.loadTexture("/home/ludfra-7/Downloads/footman/footman/Footman_Diffuse.tga");
+	diffuse.loadTexture("./build/Textures/Footman_Diffuse.tga");
 
 	textureResource normal(TexNormal);
-	normal.loadTexture("/home/ludfra-7/Downloads/footman/footman/Footman_Normal.tga");
+	normal.loadTexture("./build/Textures/Footman_Normal.tga");
 
 
 	textureResource spec(TexSpecular);
-	spec.loadTexture("/home/ludfra-7/Downloads/footman/footman/Footman_Specular.tga");
+	spec.loadTexture("./build/Textures/Footman_Specular.tga");
 
 
 	//CAMERA
@@ -209,7 +209,7 @@ ExampleApp::Run()
 	light asd(vec4(1,0,0), vec4(1,1,1), 1);
 
 
-	rig.Load("/home/ludfra-7/git/gitlab/Grafikprogrammering/Skeleton/resources/Unit_Footman.constants");
+	rig.Load("./build/Models/Unit_Footman.constants");
 	unsigned int lastAnimation = 0;
 
 	mainScene.addLight((light*)&asd);
