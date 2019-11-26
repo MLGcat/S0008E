@@ -29,15 +29,14 @@ void main()
 	//if(Color.a > 0.9) discard;
 	Color += vec4(1,0.05,0.15,0)*Color.a;
 	vec3 normal = texture2D(Normal, vec2(uv.x,1-uv.y)).rgb;
-	normal = normalize(normal)*2 - 1;
-
+	normal = normalize(TBN*(normal*2 - 1));
 	
 	vec4 result = vec4(0,0,0,0);
 	for(uint i = 0; i < lightArraySize; i++){
 		//Light direction
 		vec3 lightPos = vec3(lightArray[i].pos[0], lightArray[i].pos[1], lightArray[i].pos[2]);
 		vec3 lightColor = vec3(lightArray[i].col[0], lightArray[i].col[1], lightArray[i].col[2]);
-		vec3 lightDir = TBN*normalize(lightPos - fragPos);
+		vec3 lightDir = normalize(lightPos - fragPos);
 		
 		//Diffuse
 		float diffImpact = max(dot(normal, normalize(lightDir)),0.0);
@@ -45,18 +44,14 @@ void main()
 		
 		//Specular
 		vec3 cameraPos = vec3(camPos[0], camPos[1], camPos[2]);
-		vec3 cameraDir = TBN*normalize(cameraPos- fragPos);
+		vec3 cameraDir = normalize(cameraPos- fragPos);
 		
         vec3 specColor = texture2D(Specular, vec2(uv.x,1-uv.y)).rgb;
 		float specImpact = 8*clamp(pow(dot(normal, normalize(lightDir+cameraDir)),128), 0.0, 1.0);
 		vec4 specResult = vec4(specImpact*specColor,1);
 		
-		result += (diffResult + specResult)*lightArray[i].intensity;
+		result += (diffResult)*lightArray[i].intensity;
 	}
 	result+=vec4(ambientLight[0], ambientLight[1], ambientLight[2], 0);
 	Color *= result;
-	//Color *= 0.00001;
-	//Color += vec4(inverse(TBN)*vec3(0,0,1),1);
-	//Color = vec4(norm,1);
-	
 }

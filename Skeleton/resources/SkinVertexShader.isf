@@ -22,13 +22,13 @@ uniform mat4 bones[99];
 
 void main()
 {
-    
     mat4 boneTransforms = bones[int(skinIndiciesN.x)]*SkinWeights.x + bones[int(skinIndiciesN.y)]*SkinWeights.y + bones[int(skinIndiciesN.z)]*SkinWeights.z + bones[int(skinIndiciesN.w)]*SkinWeights.w;
 	mat4 mvp = p*v*m*boneTransforms;
 	mat3 boneTransforms3 = mat3(boneTransforms);
-    TBN = transpose(mat3(boneTransforms3*tangent, cross(boneTransforms3*normalN, boneTransforms3*tangent), boneTransforms3*normalN));
+    TBN = inverse(transpose(mat3(normalize(boneTransforms3*tangent), normalize(boneTransforms3*biNormalN), normalize(boneTransforms3*normalN))));
 	gl_Position = mvp * vec4(pos,1);
+	
 	Uv=vec2(uv.x, 1-uv.y);
-	Norm = normalN;
+	Norm = vec3(boneTransforms * vec4(normalN,1));
 	FragPos = (boneTransforms*vec4(pos,1)).xyz;
 }
